@@ -1,0 +1,118 @@
+/* 全体のスタイル */
+.top-page {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  justify-content: center; /* 垂直方向に中央寄せ */
+  align-items: center; /* 水平方向に中央寄せ */
+  min-height: 100vh; /* ビューポートの高さを占める */
+  padding: 20px; /* 少し余白をつけて */
+  text-align: center;
+  box-sizing: border-box; /* 余白が幅に影響しないように */
+}
+
+/* アプリタイトル */
+.app-title {
+  font-family: 'Arial', sans-serif;  /* フォントファミリーの設定 */
+  margin: 0;
+}
+
+/* line1とline2の共通スタイル */
+.line1, .line2 {
+  display: inline-block;  /* インライン要素として並べる */
+  font-weight: bold;
+  width: 100%;  /* 横幅を100%にして並べる */
+  text-align: center; /* 中央揃え */
+}
+
+/* line1のスタイル */
+.line1 {
+  font-size: 4em;  /* line1のフォントサイズ */
+  line-height: 1;   /* 行間の調整 */
+}
+
+/* line2のスタイル */
+.line2 {
+  font-size: 8em;  /* line2のフォントサイズ (line1の2倍) */
+  line-height: 0.8; /* line2の高さ調整 (縦幅をline1の2倍に近づける) */
+}
+
+/* ボタンのラッパー */
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ボタンを中央に揃える */
+  justify-content: center; /* 縦方向中央 */
+  gap: 20px;
+  width: 100%;
+  max-width: 300px; /* 幅制限 */
+  margin-top: 70px; /* ボタンとタイトルの間に余白 */
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+
+/* サインインボタン */
+.btn-signin {
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-signin:hover {
+  background-color: #555;
+}
+
+/* サインアップボタン */
+.btn-signup {
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #333;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-signup:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn-signin,
+  .btn-signup {
+    font-size: 1rem;
+    padding: 0.8em 0;
+  }
+
+  .auth-buttons {
+    gap: 15px;
+  }
+}
