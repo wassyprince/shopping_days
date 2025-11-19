@@ -1,24 +1,51 @@
-# README
+# アプリケーション名
+ShoppingDays
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+スケジュールの中で買い物リストを共有することで、買うものの情報共有ができて買い忘れ防止もできる。
 
-Things you may want to cover:
+# URL	デプロイ済みのURLを記載。デプロイが済んでいない場合は、デプロイが完了次第記載すること。
 
-* Ruby version
+# テスト用アカウント	ログイン機能等を実装した場合は、ログインに必要な情報を記載。またBasic認証等を設けている場合は、そのID/Passも記載すること。
 
-* System dependencies
+# 利用方法	このアプリケーションの利用方法を記載。説明が長い場合は、箇条書きでリスト化すること。
+・トップページから新規登録画面に移り、ユーザー新規登録を行う。
+・登録したユーザーでログインを行う。
+・カレンダーの日付をクリックし、買い物リストを作成する。
 
-* Configuration
+# アプリケーションを作成した背景	このアプリケーションを通じて、どのような人の、どのような課題を解決しようとしているのかを記載。
+献立や日用品の買い物に行ったときに、家族に頼まれたものや自分が買う予定だったもの、
+何となく買うつもりだったものを買い忘れることがあり、それを防ぐことができないかと考えました。
+毎日買い物をする人(自分、家族、主婦/主夫)が簡単手軽に操作できて、買い忘れを防止したいと考えてアプリ作成を行いました。
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+# 実装した機能についての画像やGIFおよびその説明※	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
+・
+# 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計	ER図を添付。
 
-* Deployment instructions
+# 画面遷移図	画面遷移図を添付。
 
-* ...
+# 開発環境	使用した言語・サービスを記載。
+・フロントエンド：HTML/CSS, JavaScript
+・バックエンド：Ruby
+・インフラ：Ruby on Rails
+・テスト：Rspec
+・テキストエディタ
+・タスク管理：GitHub
+
+# ローカルでの動作方法	git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記載。
+% git clone https://github.com/xxxxxx
+% cd xxxxxx
+% bundle install
+% rails db:create
+% rails db:migrate
+
+# 工夫したポイント	制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
+
+# 改善点	より改善するとしたらどこか、それはどのようにしてやるのか。
+
+# 制作時間	アプリケーションを制作するのにかけた時間。
+2025年11月17日からDB設計開始
