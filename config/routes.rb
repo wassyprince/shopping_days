@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
   resources :users, only: [:edit, :update, :index]
+  get 'calendar', to: 'events#calendar'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

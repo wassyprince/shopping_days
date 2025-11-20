@@ -1,0 +1,30 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "calendar" %>
+<% end %>
+
+<div class="calendar-page">
+
+  <!-- ログアウトボタン -->
+  <a href="<%= destroy_user_session_path %>"
+     data-turbo-method="delete"
+     class="logout-btn">
+     ログアウト
+  </a>
+
+  <h1>カレンダー</h1>
+
+  <%= month_calendar class: "simple-calendar", events: @events, start_day: :sunday do |date, events_for_date| %>
+  <% day_class = "day" %>
+  <% day_class += " today" if date == Date.today %>
+  <% day_class += "sunday" if date.sunday? %>
+  <% day_class += "saturday" if date.saturday? %>
+  <% day_class += "other-month" if @date && date.month != @date.month %>
+
+    <div class="<%= day_class %>">
+      <strong><%= date.day %></strong>
+      <% events_for_date.each do |event| %>
+      <div class="event"><%= event[:name] %></div>  <%# 仮にハッシュならこう %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -68,7 +68,7 @@ group :test do
 end
 
 gem 'devise'
-
+gem 'simple_calendar', '~> 2.0'
 
 
 group :production do

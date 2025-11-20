@@ -1,0 +1,56 @@
+.simple-calendar table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.simple-calendar th {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+.simple-calendar td {
+  height: 120px; /* 各セルの高さを固定 */
+  vertical-align: top;
+}
+
+.simple-calendar td.today {
+  background-color: #fffae6;
+}
+
+.simple-calendar td.wday-0 {
+  color: #d9534f;              /* 赤系 */
+  background-color: #fff0f0;   /* 淡い赤背景 */
+  font-weight: bold;
+}
+
+.simple-calendar td.wday-6 {
+  color: #0275d8;              /* 青系 */
+  background-color: #f0f8ff;   /* 淡い青背景 */
+  font-weight: bold;
+}
+
+.simple-calendar td.prev-month,
+.simple-calendar td.next-month {
+  background-color: #f5f5f5; /* 薄いグレー背景 */
+  color: #999;               /* 文字も少し薄め */
+}
+
+.simple-calendar td:hover {
+  background-color: #e6f7ff;
+}
+
+.event {
+  background-color: #f9f9f9;
+  border-left: 4px solid #007bff;
+  padding: 4px 6px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.simple-calendar td:hover {
+  background-color: #e6f7ff;
+  transition: background-color 0.3s ease;
+}

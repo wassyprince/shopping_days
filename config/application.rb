@@ -23,5 +23,8 @@ module ShoppingDays
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # 日曜始まりにする
+    config.beginning_of_week = :sunday
   end
 end
