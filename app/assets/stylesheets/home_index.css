@@ -34,6 +34,7 @@
 .line2 {
   font-size: 8em;  /* line2のフォントサイズ (line1の2倍) */
   line-height: 0.8; /* line2の高さ調整 (縦幅をline1の2倍に近づける) */
+  margin-bottom: 60px; /* line2 と h3 の間の余白 */
 }
 
 /* ボタンのラッパー */
@@ -45,7 +46,7 @@
   gap: 20px;
   width: 100%;
   max-width: 300px; /* 幅制限 */
-  margin-top: 70px; /* ボタンとタイトルの間に余白 */
+  margin-top: 0px; /* ボタンとタイトルの間に余白 */
 }
 
 .btn {

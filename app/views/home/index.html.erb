@@ -1,9 +1,15 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "home_index" %>
+<% end %>
+
 <div class="top-page">
   <h1 class="app-title">
     <span class="line1">SHOPPING</span><br>
     <span class="line2">DAYS</span>
   </h1>
   
+  <h2>買い忘れのない日常へようこそ</h2>
+
   <% if user_signed_in? %>  <!--ログイン用の表示-->    
   <p>あなたはログインしています</p>
   <p>これはログイン後のindex.html.erbです</p>
