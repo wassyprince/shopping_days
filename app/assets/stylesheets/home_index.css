@@ -116,4 +116,14 @@
   .auth-buttons {
     gap: 15px;
   }
+  
+  
+  .line1 {
+    font-size: 2em; /* スマホ用に縮小 */
+  }
+
+  .line2 {
+    font-size: 4em;   /* line1の2倍を維持しつつ縮小 */
+    margin-bottom: 40px; /* 余白も少し減らす */
+  }
 }
