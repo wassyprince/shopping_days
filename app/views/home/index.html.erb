@@ -4,9 +4,12 @@
     <span class="line2">DAYS</span>
   </h1>
   
-  <% if user_signed_in? %>
-  <%#= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn" %>
-  <% else %>
+  <% if user_signed_in? %>  <!--ログイン用の表示-->    
+  <p>あなたはログインしています</p>
+  <p>これはログイン後のindex.html.erbです</p>
+  <p>いずれログイン後はカレンダーページに移る予定ですが、今は暫定的にトップページに来ています</p>
+  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn" %>
+  <% else %> <!--ログアウト用の表示-->    
   <div class="auth-buttons">
     <%= link_to "登録済みの方はこちら", new_user_session_path, class: "btn btn-signin" %>
     <%= link_to "はじめての方はこちら", new_user_registration_path, class: "btn btn-signup" %>
