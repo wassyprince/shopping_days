@@ -1,10 +1,29 @@
-.account-page .account-page__inner {
-  width: 980px;
-  margin: 60px auto;
-  padding: 60px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 16px;
+  background-color: #f5f5f5; /* 背景も少し明るい色にして軽さを出す */
+}
+
+.account-page {
+  display: flex;
+  flex-direction: column; /* 子要素を縦に並べる */
+  align-items: center;    /* 横方向に中央揃え */
+  justify-content: center; /* 縦方向に中央揃え */
+  height: 100%;            /* 高さ100% */
+  padding: 20px;
+}
+
+.account-page__inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 20px 0;  /* 上下のマージン調整 */
 }
 .account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
   float: left;
@@ -41,6 +60,7 @@
 }
 .account-page .field {
   margin-bottom: 10px;
+  box-sizing: border-box;
 }
 .account-page .field .field-label {
   padding: 10px 0;
@@ -57,7 +77,7 @@
   letter-spacing: 1px;
 }
 .account-page .btn {
-  display: inline-block;
+  display: block;
   height: 50px;
   padding: 0 30px;
   line-height: 50px;
@@ -65,13 +85,21 @@
   text-align: center;
   border: none;
   border-radius: 2px;
+  cursor: pointer; 
 }
+
 .account-page input[type=submit] {
-  float: left;
   margin-top: 20px;
   color: #fff;
-  background-color: #38aef0;
+  background-color: #333;
+  cursor: pointer; 
 }
+
+.account-page input[type=submit]:hover {
+  background-color: #444;  /* ホバー時に少し明るく */
+}
+
+
 .account-page .field-label .field_with_errors {
   display: inline-block;
   color: #d65f4c;
@@ -111,4 +139,47 @@
   margin: 0;
   padding: 0;
   font-size: 13px;
+}
+
+
+/* 2カラム → 1カラム（縦並び） */
+@media (max-width: 768px) {
+  .account-page .account-page__inner--left,
+  .account-page .account-page__inner--right {
+    float: none;        /* 横並び解除 */
+    width: 100%;        /* 画面幅いっぱいに */
+    margin-bottom: 20px; /* 下に余白 */
+  }
+  
+  /* スマホ用調整 */
+  .account-page .account-page__inner {
+    padding: 15px 10px;  /* パディング調整 */
+    margin: 10px;
+  }
+  
+  .account-page .account-page__header h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .account-page .account-page__header h5 {
+    font-size: 13px;
+  }
+
+  .account-page .btn, input[type=submit].btn {
+    width: 100%;       /* 横いっぱいに広げる */
+    height: 48px;      /* 高さを確保 */
+    line-height: 48px; /* テキスト中央 */
+    float: none;       /* 念のため横並びを解除 */
+    margin-top: 20px;
+  }
+
+  .field-input input {
+    padding: 12px;
+    font-size: 16px;  /* スマホ用に少し大きく */
+  }
+
+  .account-page .field-label {
+    font-size: 14px;   /* スマホ向けに少し調整 */
+  }
 }
