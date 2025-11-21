@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #before_action :authenticate_user! #この記述により、ログインしていないユーザーをログインページの画面に促すことができます。
 
   def edit
     @user = current_user

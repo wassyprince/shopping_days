@@ -2,8 +2,21 @@ Rails.application.routes.draw do
   #get 'home/index'
   devise_for :users
   root "home#index"
-  resources :users, only: [:edit, :update, :index]
   get 'calendar', to: 'events#calendar'
+
+  resources :users, only: [:edit, :update, :index]
+
+  resources :shopping_lists, only: [] do
+    collection do
+      get :show_by_date
+    end
+  end
+
+  resources :shopping_lists do
+    collection do
+      get :show_by_date
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

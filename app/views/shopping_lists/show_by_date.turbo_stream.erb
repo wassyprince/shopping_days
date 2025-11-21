@@ -1,0 +1,15 @@
+<turbo-stream target="shopping_list_modal">
+  <template>
+    <div class="modal">
+      <h2><%= params[:date] %> の買い物リスト</h2>
+      <% if @shopping_lists.any? %>
+        <ul>
+          <% @shopping_lists.each do |list| %>
+            <li>ユーザーID: <%= list.user_id %></li>
+            <!-- 他に表示したいカラムがあればここに -->
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </template>
+</turbo-stream>

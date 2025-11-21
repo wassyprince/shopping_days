@@ -1,0 +1,11 @@
+<h2><%= params[:date] %> の買い物リスト</h2>
+
+<% if @shopping_lists.any? %>
+  <ul>
+    <% @shopping_lists.each do |list| %>
+      <li><%= list.item_name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>この日は買い物リストがありません。</p>
+<% end %>

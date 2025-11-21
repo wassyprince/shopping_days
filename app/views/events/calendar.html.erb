@@ -4,6 +4,8 @@
 
 <div class="calendar-page">
 
+  
+
   <!-- ログアウトボタン -->
   <a href="<%= destroy_user_session_path %>"
      data-turbo-method="delete"
@@ -19,12 +21,27 @@
   <% day_class += "sunday" if date.sunday? %>
   <% day_class += "saturday" if date.saturday? %>
   <% day_class += "other-month" if @date && date.month != @date.month %>
-
+  
+  <div class="day-cell"
+       data-controller="day"
+       data-action="click->day#open"
+       data-day-date="<%= date %>">
     <div class="<%= day_class %>">
-      <strong><%= date.day %></strong>
-      <% events_for_date.each do |event| %>
-      <div class="event"><%= event[:name] %></div>  <%# 仮にハッシュならこう %>
+      <%= date.day %>
+      <% if @shopping_counts[date].present? %>
+        🛒 <%= @shopping_counts[date] %>件
+        <%#= link_to "詳細", show_by_date_shopping_lists_path(date: date),
+                    data: { turbo_frame: "shopping_list_modal" } %>
+      <% else %>
+        <span class="no-list">買い物リストなし</span>
       <% end %>
     </div>
+  </div>
+
+        <% events_for_date.each do |event| %>
+        <div class="event"><%= event[:name] %></div>
+        <% end %>
+  
   <% end %>
 </div>
+
