@@ -1,5 +1,11 @@
-<turbo-frame id="shopping_list_modal">
-  <%= form_with model: @shopping_list do |f| %>
-    <%= f.hidden_field :date %>
-  <% end %>
-</turbo-frame>
+<h2>買い物リストを作成</h2>
+
+<!-- リスト名だけを入力するフォーム -->
+<%= form_with model: @shopping_list, url: shopping_lists_path, method: :post do |f| %>
+  <%= f.hidden_field :date %>
+  <div>
+    <%= f.label :title, "リスト名" %>
+    <%= f.text_field :title, placeholder: "例: 今週の買い物" %>
+  </div>
+  <button type="submit">リストを作成</button>
+<% end %>

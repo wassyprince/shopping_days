@@ -2,20 +2,21 @@ Rails.application.routes.draw do
   #get 'home/index'
   devise_for :users
   root "home#index"
+  
+  # カレンダーのルート
   get 'calendar', to: 'events#calendar'
 
+  # ユーザー関連のルート
   resources :users, only: [:edit, :update, :index]
 
-  resources :shopping_lists, only: [] do
+  # ショッピングリストのルート
+  resources :shopping_lists, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
     collection do
-      get :show_by_date
+      get :show_by_date  # 日付ごとのリストを表示するルート
     end
-  end
 
-  resources :shopping_lists do
-    collection do
-      get :show_by_date
-    end
+    # アイテムの追加ルート（shopping_list_idを受け取る）
+    resources :items, only: [:create, :destroy, :update, :edit]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -3,7 +3,7 @@
 <% if @shopping_lists.any? %>
   <ul>
     <% @shopping_lists.each do |list| %>
-      <li><%= list.item_name %></li>
+      <li><%= list.title %></li>
     <% end %>
   </ul>
 <% else %>

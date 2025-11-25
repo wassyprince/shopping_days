@@ -1,0 +1,9 @@
+<h2><%= @shopping_list.title %></h2>
+<p>日付: <%= @shopping_list.date %></p>
+
+<%= render "shopping_lists/show", shopping_list: @shopping_list %>
+
+<%= link_to "このリストを編集", edit_shopping_list_path(@shopping_list) %> |
+<%= link_to "このリストを削除", shopping_list_path(@shopping_list), 
+              data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %> |
+<%= link_to "買い物リストの一覧に戻る", shopping_lists_path %>

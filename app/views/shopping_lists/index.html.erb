@@ -1,0 +1,21 @@
+<h1>買い物リスト</h1>
+
+<ul>
+  <% @shopping_lists.each do |shopping_list| %>
+    <li>
+      <%= link_to shopping_list.date.strftime("%Y年%m月%d日"), shopping_list_path(shopping_list) %>
+      <% if shopping_list.items.present? %>
+        <ul>
+          <% shopping_list.items.each do |item| %>
+            <li><%= item.name %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>アイテムはありません</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- カレンダーに戻るリンク -->
+<%= link_to "カレンダーに戻る", calendar_path, class: "back-to-calendar-link" %>

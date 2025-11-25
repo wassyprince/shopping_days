@@ -1,11 +1,8 @@
-<% content_for :stylesheets do %>
+<% content_for :stylesheets do %> <!--calendar.html.erbにCSSを直接読み込む-->
   <%= stylesheet_link_tag "calendar" %>
 <% end %>
 
 <div class="calendar-page">
-
-  
-
   <!-- ログアウトボタン -->
   <a href="<%= destroy_user_session_path %>"
      data-turbo-method="delete"
@@ -14,34 +11,30 @@
   </a>
 
   <h1>カレンダー</h1>
-
-  <%= month_calendar class: "simple-calendar", events: @events, start_day: :sunday do |date, events_for_date| %>
-  <% day_class = "day" %>
-  <% day_class += " today" if date == Date.today %>
-  <% day_class += "sunday" if date.sunday? %>
-  <% day_class += "saturday" if date.saturday? %>
-  <% day_class += "other-month" if @date && date.month != @date.month %>
   
-  <div class="day-cell"
-       data-controller="day"
-       data-action="click->day#open"
-       data-day-date="<%= date %>">
+
+ <%= month_calendar class: "simple-calendar", events: @events, start_day: :sunday do |date, events_for_date| %>
+    <% day_class = "day" %>
+    <% day_class += " today" if date == Date.today %>
+    <% day_class += " sunday" if date.sunday? %>
+    <% day_class += " saturday" if date.saturday? %>
+    <% day_class += " other-month" if @date && date.month != @date.month %>
+
     <div class="<%= day_class %>">
       <%= date.day %>
       <% if @shopping_counts[date].present? %>
         🛒 <%= @shopping_counts[date] %>件
-        <%#= link_to "詳細", show_by_date_shopping_lists_path(date: date),
-                    data: { turbo_frame: "shopping_list_modal" } %>
+        <!-- クリックでその日のリスト詳細ページへ遷移 -->
+        <%= link_to "リストを見る", shopping_lists_path(date: date) %>
       <% else %>
         <span class="no-list">買い物リストなし</span>
+        <!-- 新規作成ページへ遷移 -->
+        <%= link_to "新規作成", new_shopping_list_path(date: date) %>
       <% end %>
     </div>
-  </div>
 
-        <% events_for_date.each do |event| %>
-        <div class="event"><%= event[:name] %></div>
-        <% end %>
-  
+    <% events_for_date.each do |event| %>
+      <div class="event"><%= event[:name] %></div>
+    <% end %>
   <% end %>
 </div>
-

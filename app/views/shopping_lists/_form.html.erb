@@ -1,0 +1,10 @@
+<%= form_with(model: shopping_list, local: true) do |f| %>
+  <div>
+    <%= f.label :title, "リスト名" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+<% end %>

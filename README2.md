@@ -32,7 +32,7 @@ has many   :edit_histories
 | name          | string     | null: false                    |
 | quantity      | integer    | null: false                    |
 | category      | string     | null: false                    |
-| memo          | string     | null: true                     |
+| memo          | text       | null: true                     |
 | purchased     | boolean    | null: false, default: false    |
 | shopping_list | references | null: false, foreign_key: true |
 
