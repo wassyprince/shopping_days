@@ -1,0 +1,17 @@
+<h2>買い物リスト編集</h2>
+
+<%= form_with model: @shopping_list do |f| %>
+  <div>
+    <%= f.label :title, "リスト名" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :date, "日付" %><br>
+    <%= f.date_field :date %>
+  </div>
+
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+<% end %>

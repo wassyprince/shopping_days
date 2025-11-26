@@ -1,5 +1,6 @@
 class ShoppingListsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_shopping_list, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:date].present?
@@ -11,34 +12,41 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
-    @shopping_list = ShoppingList.find(params[:id])
   end
 
   def new
     @shopping_list = ShoppingList.new(date: params[:date])
-  end
- 
+  end 
 
   def create
     @shopping_list = ShoppingList.new(shopping_list_params)
     @shopping_list.user = current_user
     if @shopping_list.save
-      redirect_to @shopping_list, notice: "リストを作成しました"
+      redirect_to @shopping_list, notice: "買い物リストを作成しました"
     else
       render :new
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @shopping_list.update(shopping_list_params)
+      redirect_to @shopping_list, notice: "買い物リストを更新しました"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
-    @shopping_list = ShoppingList.find(params[:id])
     @shopping_list.destroy
-    redirect_to shopping_lists_path, notice: "ショッピングリストを削除しました"
+    redirect_to shopping_lists_path, notice: "買い物リストを削除しました"
   end
 
   def show_by_date
     day = Date.parse(params[:date])
     @shopping_lists = ShoppingList.where(date: day.beginning_of_day..day.end_of_day)
-
     render :index
   end
 
@@ -49,6 +57,6 @@ class ShoppingListsController < ApplicationController
   end
 
   def shopping_list_params
-    params.require(:shopping_list).permit(:date, :title, :memo)
+    params.require(:shopping_list).permit(:date, :title)
   end
 end

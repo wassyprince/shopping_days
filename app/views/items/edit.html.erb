@@ -1,0 +1,32 @@
+<h2>アイテム編集</h2>
+
+<%= form_with model: [@shopping_list, @item] do |f| %>
+  <div>
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :quantity, "数量" %><br>
+    <%= f.number_field :quantity, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :category, "カテゴリ" %><br>
+    <%= f.text_field :category %>
+  </div>
+
+  <div>
+    <%= f.label :memo, "メモ" %><br>
+    <%= f.text_area :memo %>
+  </div>
+
+  <div>
+    <%= f.label :purchased, "購入済み" %>
+    <%= f.check_box :purchased %>
+  </div>
+
+  <div>
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>

@@ -8,7 +8,7 @@
   </div>
 <% end %>
 
-<h3>アイテム一覧</h3>
+<h3>品物一覧</h3>
 <% if shopping_list.items.any? %>
    <table>
     <thead>
@@ -35,23 +35,25 @@
             <% end %>
           </td>
           <td>
-          <%# 削除リンク %>
-          <%= link_to "削除", shopping_list_item_path(shopping_list, item),
-                      method: :delete,
-                      data: { confirm: "削除しますか？" } %>
+            <%# 編集リンク %>
+            <%= link_to "編集", edit_shopping_list_item_path(@shopping_list, item) %> |
+            <%# 削除リンク %>
+            <%= link_to "削除", shopping_list_item_path(shopping_list, item),
+                        method: :delete,
+                        data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>アイテムはまだありません。</p>
+  <p>品物はまだありません。</p>
 <% end %>
 
-<h3>アイテム追加</h3>
+<h3>品物追加</h3>
 <%= form_with(model: [shopping_list, Item.new], local: true) do |f| %>
   <div>
-    <%= f.label :name, "アイテム名" %>
+    <%= f.label :name, "名前" %>
     <%= f.text_field :name %>
   </div>
 
