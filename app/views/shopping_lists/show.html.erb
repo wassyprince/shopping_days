@@ -12,7 +12,7 @@
 <% end %>
 
 <h3>品物一覧</h3>
-<% if @shopping_list.items.any? %>
+<% if @items.any? %>
    <table>
     <thead>
       <tr>
@@ -25,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @shopping_list.items.each do |item| %>
+      <% @items.each do |item| %>
         <tr>
           <td><%= item.name %></td>
           <td><%= item.quantity %></td>

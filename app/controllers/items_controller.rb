@@ -16,7 +16,8 @@ class ItemsController < ApplicationController
     else
       Rails.logger.debug "ERRORS: #{@item.errors.full_messages}"
       flash.now[:alert] = "品物の追加に失敗しました"
-      render "shopping_lists/show"
+      @items = @shopping_list.items.order(created_at: :desc)
+      render "shopping_lists/show", status: :unprocessable_entity
     end
   end
 

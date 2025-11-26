@@ -5,13 +5,15 @@ class ShoppingListsController < ApplicationController
   def index
     if params[:date].present?
       # 指定日付のリストだけを表示
-      @shopping_lists = ShoppingList.where(date: params[:date])
+      @shopping_lists = ShoppingList.where(date: params[:date]).order(date: :desc)
     else
-      @shopping_lists = ShoppingList.all
+      @shopping_lists = ShoppingList.order(date: :desc, created_at: :desc)
     end
   end
 
   def show
+    @items = @shopping_list.items.order(created_at: :desc)  
+    @item = @shopping_list.items.build
   end
 
   def new
