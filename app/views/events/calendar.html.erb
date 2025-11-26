@@ -23,9 +23,8 @@
     <div class="<%= day_class %>">
       <%= date.day %>
       <% if @shopping_counts[date].present? %>
-        🛒 <%= @shopping_counts[date] %>件
         <!-- クリックでその日のリスト詳細ページへ遷移 -->
-        <%= link_to "リストを見る", shopping_lists_path(date: date) %>
+        <%= link_to "🛒 #{@shopping_counts[date]}件", shopping_lists_path(date: date), class: "shopping-count-link" %>
         <%= link_to "+", new_shopping_list_path(date: date), class: "add-button" %>
       <% else %>
         <!--<span class="no-list">買い物リストなし</span>-->
