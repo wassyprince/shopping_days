@@ -1,7 +1,89 @@
 <h2><%= @shopping_list.title %></h2>
 <p>日付: <%= @shopping_list.date %></p>
 
-<%= render "shopping_lists/show", shopping_list: @shopping_list %>
+<% if @item && @item.errors.any? %>
+  <div class="error-messages">
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h3>品物一覧</h3>
+<% if @shopping_list.items.any? %>
+   <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>数量</th>
+        <th>カテゴリ</th>
+        <th>メモ</th>
+        <th>購入済み</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_list.items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.category %></td>
+          <td><%= item.memo %></td>
+          <td>
+            <%# 購入済みチェックフォーム %>
+            <%= form_with(model: [@shopping_list, item], method: :patch, local: true) do |f| %>
+              <%= f.check_box :purchased, checked: item.purchased, onchange: 'this.form.submit();' %>      
+            <% end %>
+          </td>
+          <td>
+            <%# 編集リンク %>
+            <%= link_to "編集", edit_shopping_list_item_path(@shopping_list, item) %> |
+            <%# 削除リンク %>
+            <%= link_to "削除", shopping_list_item_path(@shopping_list, item),
+                        method: :delete,
+                        data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>品物はまだありません。</p>
+<% end %>
+
+<h3>品物追加</h3>
+<%= form_with(model: [@shopping_list, Item.new], local: true) do |f| %>
+  <div>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :quantity, "数量" %>
+    <%= f.number_field :quantity, min: 1, value: 1, id: "quantity_field" %>
+    <%= button_tag "-", type: "button",
+        onclick: "var q=document.getElementById('quantity_field'); if(q.value>1){q.value--}" %>
+
+    <%= button_tag "+", type: "button",
+        onclick: "var q=document.getElementById('quantity_field'); q.value++" %>
+  </div>
+
+  <div>
+    <%= f.label :category, "分類" %>
+    <%= f.select :category, ["食料品", "日用品", "その他"], prompt: "選択してください" %>
+  </div>
+
+  <div>
+    <%= f.label :memo, "メモ" %>
+    <%= f.text_area :memo %>
+  </div>
+
+  <div>
+    <%= f.submit "アイテムを追加" %>
+  </div>
+<% end %>
 
 <%= link_to "このリストを編集", edit_shopping_list_path(@shopping_list) %> |
 <%= link_to "このリストを削除", shopping_list_path(@shopping_list), 

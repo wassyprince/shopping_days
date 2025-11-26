@@ -1,7 +1,0 @@
-<h2><%= date %> の買い物リスト</h2>
-<ul>
-  <% shopping_lists.each do |list| %>
-    <li>
-      <%= list.title %>
-      <%= link_to "詳細を見る", shopping_list_path(list) %>
-    </li>
