@@ -26,10 +26,11 @@
         🛒 <%= @shopping_counts[date] %>件
         <!-- クリックでその日のリスト詳細ページへ遷移 -->
         <%= link_to "リストを見る", shopping_lists_path(date: date) %>
+        <%= link_to "+", new_shopping_list_path(date: date), class: "add-button" %>
       <% else %>
-        <span class="no-list">買い物リストなし</span>
+        <!--<span class="no-list">買い物リストなし</span>-->
         <!-- 新規作成ページへ遷移 -->
-        <%= link_to "新規作成", new_shopping_list_path(date: date) %>
+        <%= link_to "+", new_shopping_list_path(date: date), class: "add-button" %>
       <% end %>
     </div>
 
