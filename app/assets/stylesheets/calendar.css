@@ -74,9 +74,4 @@
     right: 10px;
     font-size: 0.9em; /* 少し小さくして収める */
   }
-
-
-  .modal-content {
-    width: 80%;  /* 小さい画面でモーダルを縮小 */
-  }
 }
