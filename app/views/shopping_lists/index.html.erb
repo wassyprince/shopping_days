@@ -3,8 +3,10 @@
 <ul>
   <% @shopping_lists.each do |shopping_list| %>
     <li>
-      <%= shopping_list.date.strftime("%Y年%m月%d日") %>      
-      <strong><%= link_to shopping_list.title , shopping_list_path(shopping_list) %></strong>
+      <%= link_to shopping_list_path(shopping_list) do %>      
+      <%= shopping_list.date.strftime("%Y年%m月%d日") %>
+      <strong><%= shopping_list.title %></strong>
+      <% end %>
       
       <% if shopping_list.items.blank? %>   
         <p>品物はありません</p>
