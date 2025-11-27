@@ -1,3 +1,35 @@
+.calendar-page {
+  position: relative; /* 子の絶対配置の基準 */
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between; /* 左右に分ける */
+  align-items: center;
+}
+
+.calendar-title{
+  
+}
+
+.new-plan-btn .btn {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.new-plan-btn .btn:hover {
+  background-color: #a71d2a;
+}
+
+.add-plan-btn {
+  margin-top: 25px;   /* 下げたい分だけ調整 */
+  display: inline-block;
+}
+
+
+/*simple-calendar*/
 .simple-calendar table {
   table-layout: fixed;
   width: 100%;
@@ -16,6 +48,7 @@
   vertical-align: top;
   border: 1px solid #ccc;    /* 細いグレーの線 */
   padding: 5px;  /* # 文字が枠にくっつかないよう余白を確保 */
+  position: relative; /* ボタンの基準位置にする */
   /*vertical-align: top;     /* # イベントを作った後に上から並べる */
 }
 
@@ -41,34 +74,17 @@
   color: #999;               /* 文字も少し薄め */
 }
 
-.event {
-  background-color: #f9f9f9;
-  border-left: 4px solid #007bff;
-  padding: 4px 6px;
-  margin-bottom: 4px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
 .simple-calendar td:hover {
   background-color: #e6f7ff;
   transition: background-color 0.3s ease;
 }
 
 
-.calendar-page {
-  position: relative; /* 子の絶対配置の基準 */
-}
-
 /* PC用：横並びでも右端に配置 */
 .logout-btn {
-   position: absolute;
+  position: absolute;
   top: 10px;    /* 上から10px */
   right: 10px;  /* 右から10px */
-}
-
-.simple-calendar td {
-  position: relative; /* ボタンの基準位置にする */
 }
 
 .add-button {

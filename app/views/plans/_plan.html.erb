@@ -1,0 +1,5 @@
+<% plans_for_date.each do |plan| %>
+  <div class="plan">
+    <strong><%= link_to "#{plan.title} (#{plan.start_time.strftime("%k:%M")} - #{plan.end_time.strftime("%k:%M")})", plan_path(plan) %></strong>
+  </div>
+<% end %>

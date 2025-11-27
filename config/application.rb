@@ -26,5 +26,8 @@ module ShoppingDays
 
     # 日曜始まりにする
     config.beginning_of_week = :sunday
+    # 日本時間に設定
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end

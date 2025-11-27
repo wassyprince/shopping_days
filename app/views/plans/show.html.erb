@@ -1,0 +1,20 @@
+<h2><%= @plan.title %></h2>
+
+<p>
+  開始: <%= @plan.start_time.strftime("%Y-%m-%d %-H:%M") %><br>
+  終了: <%= @plan.end_time.strftime("%Y-%m-%d %-H:%M") %>
+</p>
+
+<% if @plan.note.present? %>
+  <p>メモ: <%= @plan.note %></p>
+<% end %>
+
+
+<div class="links">
+  <%= link_to "編集", edit_plan_path(@plan) %> |
+  <%= link_to "削除", plan_path(@plan),
+              data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+</div>
+
+<br>
+<%= link_to "カレンダーに戻る", calendar_path %>

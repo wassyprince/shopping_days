@@ -10,6 +10,7 @@
 has many :shopping_lists
 has many :edit_histories
 has many :notifications
+has many :plans, dependent: :destroy
 
 
 ## ShoppingLists
@@ -71,12 +72,12 @@ belongs_to :item
 belongs_to :user
 
 
-## Events
+## Plans
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| name	      | string	   | null: false                    |
-| description |	text	     | null: true                     |
+| title	      | string	   | null: false                    |
+| note        |	text	     | null: true                     |
 | start_time	| datetime	 | null: false                    |
 | end_time    |	datetime	 | null: false                    |
 | user_id	    | references | null: false, foreign_key: true |

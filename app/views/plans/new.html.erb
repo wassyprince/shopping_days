@@ -1,0 +1,23 @@
+<h2>新しい予定を作成</h2>
+
+<%= form_with model: @plan do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :start_time, "開始時間" %>
+    <%= f.datetime_select :start_time, default: @plan.start_time&.in_time_zone('Tokyo') || Time.zone.now %>
+  </div>
+  <div>
+    <%= f.label :end_time, "終了時間" %>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div>
+    <%= f.label :note, "メモ" %>
+    <%= f.text_area :note %>
+  </div>
+  <%= f.submit "予定を作成" %>
+<% end %>
+<br>
+<%= link_to "カレンダーに戻る", calendar_path %>
