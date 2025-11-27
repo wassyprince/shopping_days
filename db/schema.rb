@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_27_044655) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_27_132539) do
   create_table "items", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
@@ -23,15 +23,22 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_044655) do
     t.index ["shopping_list_id"], name: "index_items_on_shopping_list_id"
   end
 
+  create_table "plan_users", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "plan_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_plan_users_on_plan_id"
+    t.index ["user_id"], name: "index_plan_users_on_user_id"
+  end
+
   create_table "plans", charset: "utf8mb3", force: :cascade do |t|
     t.string "title"
     t.datetime "start_time"
     t.datetime "end_time"
     t.text "note"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "shopping_lists", charset: "utf8mb3", force: :cascade do |t|
@@ -53,11 +60,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_044655) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "items", "shopping_lists"
-  add_foreign_key "plans", "users"
+  add_foreign_key "plan_users", "plans"
+  add_foreign_key "plan_users", "users"
   add_foreign_key "shopping_lists", "users"
 end

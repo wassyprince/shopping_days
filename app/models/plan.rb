@@ -1,5 +1,6 @@
 class Plan < ApplicationRecord
-  belongs_to :user
+  has_many :plan_users
+  has_many :users, through: :plan_users
 
   validates :title, presence: true
   validates :start_time, presence: true

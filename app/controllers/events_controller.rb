@@ -10,6 +10,6 @@ class EventsController < ApplicationController
     @shopping_list = ShoppingList.find_by(date: @date, user: current_user)  # 例: 現在のユーザーの買い物リストを取得
     
     # 予定を取得して @plans に入れる
-    @plans = current_user.plans
+    @plans = Plan.all
   end
 end

@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :shopping_lists, dependent: :destroy
-  has_many :plans, dependent: :destroy
+  has_many :plan_users
+  has_many :plans, through: :plan_users
 end

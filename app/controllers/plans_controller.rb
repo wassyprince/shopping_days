@@ -40,7 +40,7 @@ class PlansController < ApplicationController
   end
 
   def plan_params
-    params.require(:plan).permit(:title, :start_time, :end_time, :note)
+    params.require(:plan).permit(:title, :start_time, :end_time, :note, user_ids: [])
   end
 
 end
