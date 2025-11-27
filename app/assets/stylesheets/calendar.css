@@ -8,10 +8,6 @@
   align-items: center;
 }
 
-.calendar-title{
-  
-}
-
 .new-plan-btn .btn {
   padding: 6px 12px;
   background-color: #dc3545;
@@ -74,7 +70,7 @@
   color: #999;               /* 文字も少し薄め */
 }
 
-.simple-calendar td:hover {
+.simple-calendar td:hover { /* 日付セルにカーソル乗せると色が変わる */
   background-color: #e6f7ff;
   transition: background-color 0.3s ease;
 }
@@ -87,9 +83,9 @@
   right: 10px;  /* 右から10px */
 }
 
-.add-button {
+.add-button {  /* 買い物リスト追加ボタン */
   position: absolute;
-  right: 10px; /* 右からの距離 */
+  right: 10px;
   font-size: 1.2em;
 }
 

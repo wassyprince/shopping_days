@@ -11,7 +11,7 @@
 
   <div class="calendar-header">
     <div class="calendar-title">
-      <h1>カレンダー</h1>
+      <h1>📅 <%= @date.strftime("%Y年%-m月") %>のカレンダー</h1>
     </div>
     <div class="new-plan-btn">
       <%= link_to "新しい予定を作成", new_plan_path, class: "btn add-plan-btn" %>
