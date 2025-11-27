@@ -1,6 +1,7 @@
 .simple-calendar table {
   table-layout: fixed;
   width: 100%;
+  border-collapse: collapse; /* 枠線を重ねず1本に見せる */
 }
 
 .simple-calendar th {
@@ -13,6 +14,9 @@
 .simple-calendar td {
   height: 120px; /* 各セルの高さを固定 */
   vertical-align: top;
+  border: 1px solid #ccc;    /* 細いグレーの線 */
+  padding: 5px;  /* # 文字が枠にくっつかないよう余白を確保 */
+  /*vertical-align: top;     /* # イベントを作った後に上から並べる */
 }
 
 .simple-calendar td.today {

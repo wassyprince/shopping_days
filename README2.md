@@ -16,8 +16,9 @@ has many :notifications
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| date   | date       | null: false                   |
+| date   | date       | null: false                    |
 | user   | references | null: false, foreign_key: true |
+| title  | string     | null: false                    | 
 
 ### Association
 belongs_to :user
@@ -65,6 +66,20 @@ belongs_to :item
 | notify_time | datetime   | null: false                    |
 | enabled     | boolean    | null: false, default: true     |
 | user        | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+
+
+## Events
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name	      | string	   | null: false                    |
+| description |	text	     | null: true                     |
+| start_time	| datetime	 | null: false                    |
+| end_time    |	datetime	 | null: false                    |
+| user_id	    | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
