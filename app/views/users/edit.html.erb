@@ -24,8 +24,29 @@
             <%= f.email_field :email%>
           </div>
         </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password %>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password_confirmation %>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </div>
         <div class='actions'>
-          <%= f.submit "Update", class: 'btn'%>
+          <%= f.submit "Edit Account", class: 'btn'%>
+        </div>
+        <div class='actions'>
+          <%= link_to "アカウント削除", user_registration_path,
+                      data: { turbo_method: :delete, confirm: "本当に削除しますか？" },
+                      class: 'btn btn-danger' %>
         </div>
       <% end %>
     </div>

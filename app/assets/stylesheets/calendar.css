@@ -5,7 +5,25 @@
 .calendar-header {
   display: flex;
   justify-content: space-between; /* 左右に分ける */
-  align-items: center;
+  align-items: flex-start; /* 上揃えにする */
+}
+
+.account-links {
+  display: flex;
+  flex-direction: column; /* 縦方向に並べる */
+  margin-top: 40px;       /* 余白を追加 */
+}
+
+
+.account-edit-link{
+  margin-left: auto;
+  padding: 10px 10px  0 0;
+}
+
+.logout-btn,
+.account-edit-link {
+  text-decoration: none;
+  color: #333;
 }
 
 .new-plan-btn .btn {
@@ -15,6 +33,7 @@
   border-radius: 4px;
   text-decoration: none;
 }
+
 .new-plan-btn .btn:hover {
   background-color: #a71d2a;
 }
