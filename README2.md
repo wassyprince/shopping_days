@@ -10,7 +10,8 @@
 has many :shopping_lists
 has many :edit_histories
 has many :notifications
-has many :plans, dependent: :destroy
+has_many :plan_users
+has_many :plans, through: :plan_users
 
 
 ## ShoppingLists
@@ -80,7 +81,18 @@ belongs_to :user
 | note        |	text	     | null: true                     |
 | start_time	| datetime	 | null: false                    |
 | end_time    |	datetime	 | null: false                    |
-| user_id	    | references | null: false, foreign_key: true |
 
 ### Association
+has_many :plan_users
+has_many :users, through: :plan_users
+
+
+## Plan_User
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| plan	      | bigint	   | null: false, foreign_key: true |
+| user        | bigint     | null: false, foreign_key: true |
+
+### Association
+belongs_to :plan
 belongs_to :user
