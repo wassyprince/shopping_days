@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_path  # 更新成功
+      sign_in @user, bypass: true
+      redirect_to calendar_path  # 更新成功
     else
       render :edit
     end
