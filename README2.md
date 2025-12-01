@@ -48,9 +48,8 @@ has many   :edit_histories
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| action        | string     | null: false                    |
-| timestamp     | datetime   | null: false                    |
-| item          | references | null: false, foreign_key: true |
+| action        | integer    | null: false                    |
+| item          | references | null: true, foreign_key: true  |
 | user          | references | null: false, foreign_key: true |
 | shopping_list | references | null: false, foreign_key: true |
 
