@@ -7,3 +7,6 @@ ja:
     sessions:
       signed_in: "ログインしました"
       signed_out: "ログアウトしました"
+  errors:
+    messages:
+      not_saved: "新規アカウントの作成できませんでした"
