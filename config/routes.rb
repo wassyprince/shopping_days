@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'calendar', to: 'events#calendar'
 
   # ユーザー関連のルート
-  resources :users, only: [:edit, :update, :index]
+  resources :users, only: [:edit, :update, :destroy]
 
   # ショッピングリストのルート
   resources :shopping_lists, only: [:index, :create, :new, :show, :edit, :update, :destroy] do

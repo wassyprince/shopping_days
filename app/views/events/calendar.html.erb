@@ -11,7 +11,7 @@
     <div class="calendar-actions">
       <div class="account-links">
         <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="logout-btn">ログアウト</a>
-        <%= link_to "アカウント編集・削除", edit_user_registration_path, class: "account-edit-link" %>
+        <%= link_to "アカウント編集・削除", edit_user_path(current_user), class: "account-edit-link" %>
       </div>
       <div class="new-plan-btn">
         <%= link_to "新しい予定を作成", new_plan_path, class: "btn add-plan-btn" %>
