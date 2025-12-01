@@ -150,20 +150,25 @@ body {
 }
 
 /*アカウント削除ボタン*/
+
+.spacer {
+  margin-top: 130px;   /* 上に80pxの余白を作る */
+}
+
 .danger-link {
   display: inline-block;
-  width: 300px;              /* 横幅を広めに */
-  height: 60px;              /* 高さを大きめに */
-  line-height: 60px;         /* テキストを縦中央に */
+  width: 220px;              /* 横幅を広めに */
+  height: 50px;              /* 高さを大きめに */
+  line-height: 50px;         /* テキストを縦中央に */
   background-color: #e53935;
   color: #fff;
-  border-radius: 30px;       /* 丸みを強調（半径を大きく） */
-  font-size: 20px;           /* 文字も少し大きく */
+  border-radius: 25px;       /* 丸みを強調（半径を大きく） */
+  font-size: 18px;           /* 文字も少し大きく */
   font-weight: bold;
   text-align: center;        /* 中央揃え */
   text-decoration: none;
   transition: background-color 0.3s ease;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .danger-link:hover {

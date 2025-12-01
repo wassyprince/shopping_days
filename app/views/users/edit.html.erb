@@ -4,7 +4,8 @@
       <h2>Edit Account</h2>
       <h5>アカウントの編集</h5><br>
       <%= link_to "カレンダーへ戻る", root_path %><br><br>
-      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %><br>
+      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+      <div class="spacer"></div>
       <%= link_to "アカウント削除", user_path(@user),
             data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" },
             class: "danger-link" %>
