@@ -15,15 +15,12 @@
 }
 
 
-.account-edit-link{
-  margin-left: auto;
-  padding: 10px 10px  0 0;
-}
-
-.logout-btn,
-.account-edit-link {
+.account-edit-link,
+.edit-history-link {
   text-decoration: none;
   color: #333;
+  margin-left: auto;
+  padding: 10px 10px  0 0;
 }
 
 .new-plan-btn .btn {
@@ -97,6 +94,8 @@
 
 /* PC用：横並びでも右端に配置 */
 .logout-btn {
+  text-decoration: none;
+  color: #333;
   position: absolute;
   top: 10px;    /* 上から10px */
   right: 10px;  /* 右から10px */

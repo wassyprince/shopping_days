@@ -19,12 +19,7 @@
     <% if flash[:alert] %>
       <div class="flash alert"><%= flash[:alert] %></div>
     <% end %>
-   
-    <nav>
-    <%= link_to "ショッピングリスト", shopping_lists_path %> |
-    <%= link_to "編集履歴", edit_histories_path %>
-    </nav>
-    
+            
     <%= yield %>
   </body>
 </html>
