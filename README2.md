@@ -89,8 +89,8 @@ has_many :users, through: :plan_users
 ## Plan_User
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| plan	      | bigint	   | null: false, foreign_key: true |
-| user        | bigint     | null: false, foreign_key: true |
+| plan	      | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :plan

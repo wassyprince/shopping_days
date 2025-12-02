@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :shopping_lists, dependent: :destroy
   has_many :plan_users
   has_many :plans, through: :plan_users
+  has_many :edit_histories
 end

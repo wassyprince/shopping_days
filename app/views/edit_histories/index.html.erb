@@ -1,0 +1,24 @@
+<h2>編集履歴一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー</th>
+      <th>リスト名</th>
+      <th>アイテム</th>
+      <th>アクション</th>
+      <th>日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @edit_histories.each do |history| %>
+      <tr>
+        <td><%= history.user.name %></td>
+        <td><%= history.list_title %>
+        <td><%= history.item&.name || "-" %></td>
+        <td><%= t("enums.edit_history.action.#{history.action}") %></td>
+        <td><%= l(history.created_at, format: :short) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_27_132539) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_02_055123) do
+  create_table "edit_histories", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "action", null: false
+    t.bigint "user_id", null: false
+    t.bigint "shopping_list_id", null: false
+    t.bigint "item_id"
+    t.string "list_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_edit_histories_on_item_id"
+    t.index ["shopping_list_id"], name: "index_edit_histories_on_shopping_list_id"
+    t.index ["user_id"], name: "index_edit_histories_on_user_id"
+  end
+
   create_table "items", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
@@ -63,6 +76,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_132539) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "edit_histories", "items"
+  add_foreign_key "edit_histories", "shopping_lists"
+  add_foreign_key "edit_histories", "users"
   add_foreign_key "items", "shopping_lists"
   add_foreign_key "plan_users", "plans"
   add_foreign_key "plan_users", "users"
