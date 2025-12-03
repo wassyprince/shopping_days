@@ -1,4 +1,9 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "shopping_lists2" %>
+<% end %>
+
 <h1>買い物リスト</h1>
+<%= link_to "買い物リスト履歴", edit_histories_path, class: "edit-history-link" %>
 
 <ul>
   <% @shopping_lists.each do |shopping_list| %>
