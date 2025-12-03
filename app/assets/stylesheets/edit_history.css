@@ -1,2 +1,11 @@
-td.created { color: green; font-weight: bold; }
-td.updated { color: blue; }
+td.created { color: green; font-weight: bold; text-align: center;}
+td.updated { color: blue; text-align: center;}
+
+table {
+  border-collapse: collapse; /* 枠線を重ねない */
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ccc; /* 枠線の色や太さ */
+}
