@@ -14,3 +14,8 @@ ja:
   errors:
     messages:
       not_saved: "新規アカウントの作成できませんでした"
+  enums:
+    edit_history:
+      action:
+        created: "作成"
+        updated: "更新"

@@ -21,10 +21,9 @@ class ShoppingListsController < ApplicationController
   end 
 
   def create
-    @shopping_list = current_user.ShoppingList.new(shopping_list_params)
-    @shopping_list.user = current_user
+    @shopping_list = current_user.shopping_lists.new(shopping_list_params)
     if @shopping_list.save
-      EditHistory.create!(user: current_user, shopping_list: @shopping_list, action: :created)
+      EditHistory.create!(user: current_user, shopping_list: @shopping_list, action: :created, list_title: @shopping_list.title)
       redirect_to @shopping_list, notice: "買い物リストを作成しました"
     else
       render :new
@@ -45,7 +44,6 @@ class ShoppingListsController < ApplicationController
 
   def destroy
     @shopping_list.destroy
-    EditHistory.create!(user: current_user, shopping_list: @shopping_list, action: :deleted)
     redirect_to shopping_lists_path, notice: "買い物リストを削除しました"
   end
 

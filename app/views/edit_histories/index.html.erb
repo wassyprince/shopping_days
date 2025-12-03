@@ -1,3 +1,7 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "edit_history" %>
+<% end %>
+
 <h2>編集履歴一覧</h2>
 
 <table>
@@ -5,7 +9,7 @@
     <tr>
       <th>ユーザー</th>
       <th>リスト名</th>
-      <th>アイテム</th>
+      <th>アイテム名</th>
       <th>アクション</th>
       <th>日時</th>
     </tr>
@@ -14,11 +18,15 @@
     <% @edit_histories.each do |history| %>
       <tr>
         <td><%= history.user.name %></td>
-        <td><%= history.list_title %>
+        <td><%= history.list_title %></td>
         <td><%= history.item&.name || "-" %></td>
-        <td><%= t("enums.edit_history.action.#{history.action}") %></td>
-        <td><%= l(history.created_at, format: :short) %></td>
+        <td class="<%= history.action %>">
+          <%= t("enums.edit_history.action.#{history.action}") %>
+        </td>
+        <td><%= history.created_at.strftime("%-m月%-d日 %-H:%M") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "カレンダーに戻る", calendar_path %>
