@@ -1,0 +1,19 @@
+.shoppinglist-items-table table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.shoppinglist-items-table th,
+.shoppinglist-items-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.shoppinglist-items-table th:nth-child(5),
+.shoppinglist-items-table td:nth-child(5) {
+  width: 80px;
+  text-align: center;
+  white-space: nowrap; /* 改行させない */
+}

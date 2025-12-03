@@ -1,11 +1,12 @@
 td.created { color: green; font-weight: bold; text-align: center;}
 td.updated { color: blue; text-align: center;}
 
-table {
+.edit_history table {
   border-collapse: collapse; /* 枠線を重ねない */
   width: 100%;
 }
 
-th, td {
+.edit_history th, 
+.edit_history td {
   border: 1px solid #ccc; /* 枠線の色や太さ */
 }
