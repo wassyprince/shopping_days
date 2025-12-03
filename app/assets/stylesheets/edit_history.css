@@ -1,5 +1,6 @@
 td.created { color: green; font-weight: bold; text-align: center;}
 td.updated { color: blue; text-align: center;}
+td.deleted { color: red; text-align: center;}
 
 .edit_history_table table{
   border-collapse: collapse; /* 枠線を重ねない */

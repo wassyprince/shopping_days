@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_shopping_list
+  before_action :set_shopping_list, only: [:edit, :create, :update, :destroy]
   before_action :set_item, only: [:edit, :update, :destroy]
 
   # アイテム編集フォーム表示
@@ -8,10 +8,18 @@ class ItemsController < ApplicationController
   
   # アイテムの作成
   def create
-    @shopping_list = ShoppingList.find(params[:shopping_list_id])
     @item = @shopping_list.items.build(item_params)
 
     if @item.save
+      EditHistory.create!(
+      user: current_user,
+      shopping_list: @shopping_list,
+      item: @item,
+      action: :created,
+      after_name: @item.name,
+      after_quantity: @item.quantity,
+      after_category: @item.category
+    )
       redirect_to @shopping_list, notice: "品物を追加しました"
     else
       Rails.logger.debug "ERRORS: #{@item.errors.full_messages}"
@@ -23,7 +31,23 @@ class ItemsController < ApplicationController
 
   # アイテムの更新
   def update
+    # 更新前の値を控える（ここがないと NameError）
+    before_name = @item.name
+    before_quantity = @item.quantity
+    before_category = @item.category
     if @item.update(item_params)
+      EditHistory.create!(
+      user: current_user,
+      shopping_list: @shopping_list,
+      item: @item,
+      action: :updated,
+      before_name: before_name,
+      after_name: @item.name,
+      before_quantity: before_quantity,
+      after_quantity: @item.quantity,
+      before_category: before_category,
+      after_category: @item.category
+    )
       redirect_to @shopping_list, notice: "品物を更新しました"
     else
       flash.now[:alert] = "品物の更新に失敗しました"
@@ -33,8 +57,17 @@ class ItemsController < ApplicationController
 
   # アイテムの削除
   def destroy
-    @shopping_list = ShoppingList.find(params[:shopping_list_id])
-    @item = @shopping_list.items.find(params[:id])
+
+    EditHistory.create!(
+    user: current_user,
+    shopping_list: @shopping_list,
+    item: @item,
+    action: :deleted,
+    before_name: @item.name,
+    before_quantity: @item.quantity,
+    before_category: @item.category
+  )
+
     @item.destroy
     redirect_to @shopping_list, notice: "品物を削除しました"
   end

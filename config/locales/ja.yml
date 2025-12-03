@@ -19,3 +19,4 @@ ja:
       action:
         created: "作成"
         updated: "更新"
+        deleted: "削除"

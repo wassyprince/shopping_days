@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_02_055123) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_03_043427) do
   create_table "edit_histories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "action", null: false
     t.bigint "user_id", null: false
@@ -19,6 +19,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_02_055123) do
     t.string "list_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "before_name"
+    t.string "after_name"
+    t.integer "before_quantity"
+    t.integer "after_quantity"
+    t.string "before_category"
+    t.string "after_category"
     t.index ["item_id"], name: "index_edit_histories_on_item_id"
     t.index ["shopping_list_id"], name: "index_edit_histories_on_shopping_list_id"
     t.index ["user_id"], name: "index_edit_histories_on_user_id"

@@ -19,8 +19,19 @@
     <% @edit_histories.each do |history| %>
       <tr>
         <td><%= history.user.name %></td>
-        <td><%= history.list_title %></td>
-        <td><%= history.item&.name || "-" %></td>
+        <td><%= history.shopping_list&.title %></td>
+        <td>
+          <% case history.action %>
+          <% when "created" %>
+            <%= history.after_name %>（追加）
+          <% when "updated" %>
+            名前: <%= history.before_name %> → <%= history.after_name %><br>
+            数量: <%= history.before_quantity %> → <%= history.after_quantity %><br>
+            カテゴリ: <%= history.before_category %> → <%= history.after_category %>
+          <% when "deleted" %>
+            <%= history.before_name %>（削除）
+          <% end %>
+        </td>
         <td class="<%= history.action %>">
           <%= t("enums.edit_history.action.#{history.action}") %>
         </td>
