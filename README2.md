@@ -7,8 +7,8 @@
 | encrypted_password | string | null: false               |
 
 ### Association
-has many :shopping_lists
-has many :edit_histories
+has many :shopping_lists, dependent: :destroy
+has many :edit_histories, dependent: :nullify
 has many :notifications
 has_many :plan_users
 has_many :plans, through: :plan_users
@@ -24,8 +24,8 @@ has_many :plans, through: :plan_users
 
 ### Association
 belongs_to :user
-has many   :items
-has many   :edit_histories
+has many   :items, dependent: :destroy
+has many   :edit_histories, dependent: :destroy
 
 
 ## Items
@@ -41,7 +41,7 @@ has many   :edit_histories
 
 ### Association
 belongs_to :shopping_list
-has many   :edit_histories
+has many   :edit_histories, , dependent: :nullify
 
 
 ## EditHistory
@@ -56,7 +56,7 @@ has many   :edit_histories
 ### Association
 belongs_to :user
 belongs_to :shopping_list
-belongs_to :item
+belongs_to :item, optional: true
 
 
 ## Notifications
@@ -82,7 +82,7 @@ belongs_to :user
 | end_time    |	datetime	 | null: false                    |
 
 ### Association
-has_many :plan_users
+has_many :plan_users, dependent: :destroy
 has_many :users, through: :plan_users
 
 

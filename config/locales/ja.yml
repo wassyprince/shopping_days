@@ -1,9 +1,9 @@
 ja:
   devise:
     registrations:
-      signed_up: "アカウントを作成しました。"
+      signed_up: "アカウントを作成しました"
       user:
-        signed_up: "ユーザー登録が完了しました。"
+        signed_up: "ユーザー登録が完了しました"
     sessions:
       signed_in: "ログインしました"
       signed_out: "ログアウトしました"
@@ -14,7 +14,7 @@ ja:
       invalid: "メールアドレスまたはパスワードが正しくありません"
   errors:
     messages:
-      not_saved: "新規アカウントの作成できませんでした"
+      not_saved: "新規アカウント作成をできませんでした"
   enums:
     edit_history:
       action:
