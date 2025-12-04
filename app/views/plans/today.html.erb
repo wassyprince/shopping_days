@@ -1,0 +1,10 @@
+<h2>📅 今日の予定</h2>
+<% if @plans.any? %>
+  <ul>
+    <% @plans.each do |plan| %>
+      <li><%= link_to plan.title, plan_path(plan) %>（<%= plan.start_time.strftime("%H:%M") %>〜）</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>予定はありません</p>
+<% end %>

@@ -21,8 +21,15 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :destroy, :update, :edit]
   end
 
-  resources :plans
+  resources :plans do
+    collection do
+      get :today
+    end
+  end
+
   resources :edit_histories, only: [:index]
+
+  
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

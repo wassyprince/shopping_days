@@ -20,7 +20,8 @@ class EventsController < ApplicationController
         Date.today
       end
 
-    @today_list = current_user.shopping_lists.find_by(date: Date.today)
+    @today_lists = current_user.shopping_lists.where(date: Date.today)
+    @today_plans = current_user.plans.where(start_time: Date.today.all_day)
 
   end
 end

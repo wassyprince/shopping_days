@@ -1,5 +1,5 @@
-<% content_for :stylesheets do %> <!--calendar.html.erbにCSSを直接読み込む-->
-  <%= stylesheet_link_tag "calendar" %>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "calendar" %> <!--app/stylesheets/calendar.cssを読み込む-->
 <% end %>
 
 <div class="calendar-page">
@@ -41,9 +41,31 @@
 </div>
 
 <!--通知バナー-->
-<% if @today_list.present? %>
-  <div class="banner">
-    🛒 今日の買い物リストがあります
-    <%= link_to "見る", today_shopping_lists_path, class: "btn" %>
-  </div>
-<% end %>
+<div id="banner-container">
+  <% if @today_lists.present? %>
+    <div class="banner" id="banner-list">
+      🛒 今日の買い物リストがあります
+      <%= link_to "見る", today_shopping_lists_path, class: "btn" %>
+    </div>
+  <% end %>
+
+  <% if @today_plans.present? %>
+    <div class="banner" id="banner-plan">
+      📅 今日の予定があります
+      <%= link_to "見る", today_plans_path, class: "btn" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const banners = document.querySelectorAll('.banner');
+    banners.forEach(banner => {
+      banner.classList.add('visible');
+      setTimeout(() => {
+        banner.classList.remove('visible');
+        setTimeout(() => banner.style.display = 'none', 1000);
+      }, 5000);
+    });
+  });
+</script>

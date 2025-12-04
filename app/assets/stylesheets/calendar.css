@@ -1,14 +1,23 @@
 /*通知バナー*/
+#banner-container {
+  position: static;
+  margin-top: 20px;
+}
+
 .banner {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background: #f0f8ff;
   color: #333;
   padding: 10px;
   text-align: center;
   box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+  opacity: 0;                  /* 最初は透明 */
+  transition: opacity 1s ease; /* 1秒かけて表示/非表示 */
 }
+
+.banner.visible {
+  opacity: 1;                  /* 表示状態 */
+}
+/*ここまで通知バナー*/
 
 .calendar-page {
   position: relative; /* 子の絶対配置の基準 */

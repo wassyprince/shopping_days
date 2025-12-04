@@ -33,6 +33,15 @@ class PlansController < ApplicationController
     redirect_to calendar_path, notice: "予定を削除しました"
   end
 
+  def today
+    @plans = current_user.plans.where(start_time: Date.today.all_day).order(:start_time)
+    if @plans.present?
+      render :today
+    else
+      redirect_to plans_path, notice: "今日の予定はありません"
+    end
+  end
+
   private
 
   def set_plan
