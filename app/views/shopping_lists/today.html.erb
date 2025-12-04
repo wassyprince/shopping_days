@@ -1,0 +1,9 @@
+<h2>今日の買い物リスト一覧</h2>
+
+<% @shopping_lists.each do |list| %>
+  <div class="shopping-list-card">
+    <h3><%= link_to list.title, shopping_list_path(list) %></h3>
+    <p>日付: <%= list.date %></p>
+    <p>アイテム数: <%= list.items.count %></p>
+  </div>
+<% end %>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :shopping_lists, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
     collection do
       get :show_by_date  # 日付ごとのリストを表示するルート
+      get :today
     end
 
     # アイテムの追加ルート（shopping_list_idを受け取る）

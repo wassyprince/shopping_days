@@ -53,6 +53,16 @@ class ShoppingListsController < ApplicationController
     render :index
   end
 
+  def today
+    @shopping_lists = current_user.shopping_lists.where(date: Date.today).order(created_at: :desc)
+
+    if @shopping_lists.any?
+      render :today  # 専用ビュー
+    else
+      redirect_to shopping_lists_path, notice: "今日のリストはありません"
+    end
+  end
+
   private
 
   def set_shopping_list

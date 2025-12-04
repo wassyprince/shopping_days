@@ -19,5 +19,8 @@ class EventsController < ApplicationController
       else
         Date.today
       end
+
+    @today_list = current_user.shopping_lists.find_by(date: Date.today)
+
   end
 end

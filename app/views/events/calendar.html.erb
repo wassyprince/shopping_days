@@ -39,3 +39,11 @@
     <%= render partial: "plans/plan", locals: { plans_for_date: @plans.select { |p| p.start_time.to_date == date } } %>
   <% end %>
 </div>
+
+<!--通知バナー-->
+<% if @today_list.present? %>
+  <div class="banner">
+    🛒 今日の買い物リストがあります
+    <%= link_to "見る", today_shopping_lists_path, class: "btn" %>
+  </div>
+<% end %>
