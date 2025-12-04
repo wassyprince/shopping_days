@@ -20,3 +20,18 @@ ja:
         created: "作成"
         updated: "更新"
         deleted: "削除"
+  activerecord:
+    models:
+      plan: 予定
+    attributes:
+      plan:
+        title: タイトル
+        start_time: 開始時間
+        end_time: 終了時間
+        note: メモ
+      item:
+        name: 名前
+        quantity: 数量
+        category: 分類
+      shopping_list:
+        title: リスト名

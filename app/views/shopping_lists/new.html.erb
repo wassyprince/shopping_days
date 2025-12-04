@@ -1,6 +1,13 @@
 <h2>買い物リストを作成</h2>
 
-<!-- リスト名だけを入力するフォーム -->
+<% if @shopping_list.errors.any? %>
+  <ul class="error-messages">
+    <% @shopping_list.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @shopping_list, url: shopping_lists_path, method: :post do |f| %>
   <%= f.hidden_field :date %>
   <div>
@@ -10,5 +17,5 @@
   <button type="submit">買い物リストを作成</button>
 <% end %>
 <br>
-<!-- カレンダーに戻るリンク -->
+
 <%= link_to "カレンダーに戻る", calendar_path %>

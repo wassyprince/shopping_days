@@ -1,5 +1,13 @@
 <h2>新しい予定を作成</h2>
 
+<% if @plan.errors.any? %>
+  <ul class="error-messages">
+    <% @plan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @plan do |f| %>
   <div>
     <%= f.label :title, "タイトル" %>

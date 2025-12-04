@@ -1,5 +1,13 @@
 <h2>予定を編集</h2>
 
+<% if @plan.errors.any? %>
+  <ul class="error-messages">
+    <% @plan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with(model: @plan, local: true) do |form| %>
   <div>
     <%= form.label :title, "タイトル" %><br>

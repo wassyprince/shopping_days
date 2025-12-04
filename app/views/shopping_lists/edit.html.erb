@@ -1,5 +1,13 @@
 <h2>買い物リスト編集</h2>
 
+<% if @shopping_list.errors.any? %>
+  <ul class="error-messages">
+    <% @shopping_list.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @shopping_list do |f| %>
   <div>
     <%= f.label :title, "リスト名" %><br>

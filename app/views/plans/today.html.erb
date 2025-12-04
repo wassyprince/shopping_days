@@ -2,7 +2,9 @@
 <% if @plans.any? %>
   <ul>
     <% @plans.each do |plan| %>
-      <li><%= link_to plan.title, plan_path(plan) %>（<%= plan.start_time.strftime("%H:%M") %>〜）</li>
+      <li><%= link_to plan.title, plan_path(plan) %>
+      （<%= plan.start_time.strftime("%H:%M") %>〜<%= plan.end_time.strftime("%H:%M") %>）
+      </li>
     <% end %>
   </ul>
 <% else %>
