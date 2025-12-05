@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :plans, through: :plan_users
   has_many :edit_histories, dependent: :nullify
   has_one :notification, dependent: :destroy
+  
   after_create :create_notification
 
   validates :name, presence: true

@@ -31,9 +31,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_05_044149) do
   end
 
   create_table "items", charset: "utf8mb3", force: :cascade do |t|
-    t.string "name"
-    t.integer "quantity"
-    t.string "category"
+    t.string "name", null: false
+    t.integer "quantity", null: false
+    t.string "category", null: false
     t.text "memo"
     t.boolean "purchased", default: false, null: false
     t.bigint "shopping_list_id", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_05_044149) do
 
   create_table "notifications", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.boolean "enabled"
+    t.boolean "enabled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
@@ -60,9 +60,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_05_044149) do
   end
 
   create_table "plans", charset: "utf8mb3", force: :cascade do |t|
-    t.string "title"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "title", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
