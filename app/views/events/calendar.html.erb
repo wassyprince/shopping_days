@@ -6,7 +6,23 @@
   <div class="calendar-header">
     <div class="calendar-title">
       <h1>📅 <%= @date.strftime("%Y年%-m月") %>のカレンダー</h1>
+      <div class="notification-controls">
+        <% if current_user.notification&.enabled? %>
+          <%= button_to "通知を無効にする",
+                  notification_path,
+                  method: :patch,
+                  params: { notification: { enabled: false } },
+                  class: "notification-btn enabled" %>
+        <% else %>
+          <%= button_to "通知を有効にする",
+                  notification_path,
+                  method: :patch,
+                  params: { notification: { enabled: true } },
+                  class: "notification-btn disabled" %>
+        <% end %>
+      </div>
     </div>
+    
     <div class="account-links">
       <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="logout-btn">ログアウト</a><br>
       <%= link_to "アカウント編集・削除", edit_user_path(current_user), class: "account-edit-link" %>
@@ -62,7 +78,7 @@ window.addEventListener('turbo:load', () => {
     setTimeout(() => {
       banner.classList.remove('visible');
       setTimeout(() => banner.style.display = 'none', 2000);
-    }, 5000);
+    }, 3000);
   });
 });
 </script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_03_043427) do
+ActiveRecord::Schema[7.1].define(version: 2025_12_05_044149) do
   create_table "edit_histories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "action", null: false
     t.bigint "user_id", null: false
@@ -40,6 +40,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_03_043427) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shopping_list_id"], name: "index_items_on_shopping_list_id"
+  end
+
+  create_table "notifications", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "plan_users", charset: "utf8mb3", force: :cascade do |t|
@@ -86,6 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_03_043427) do
   add_foreign_key "edit_histories", "shopping_lists"
   add_foreign_key "edit_histories", "users"
   add_foreign_key "items", "shopping_lists"
+  add_foreign_key "notifications", "users"
   add_foreign_key "plan_users", "plans"
   add_foreign_key "plan_users", "users"
   add_foreign_key "shopping_lists", "users"

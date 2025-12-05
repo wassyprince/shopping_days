@@ -8,6 +8,15 @@ class User < ApplicationRecord
   has_many :plan_users
   has_many :plans, through: :plan_users
   has_many :edit_histories, dependent: :nullify
+  has_one :notification, dependent: :destroy
+  after_create :create_notification
 
-  validates :name, presence: true  
+  validates :name, presence: true
+
+  private
+  
+  def create_notification
+    Notification.create(user: self, enabled: true)
+  end
+
 end

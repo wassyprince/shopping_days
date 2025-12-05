@@ -28,8 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :edit_histories, only: [:index]
-
-  
+  resource :notification, only: [:update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
