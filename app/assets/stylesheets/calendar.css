@@ -1,21 +1,29 @@
 /*通知バナー*/
 #banner-container {
-  position: static;
-  margin-top: 20px;
+  position: fixed;
+  top: 60px;
+  right: 2px;
+  width: 100%;
 }
 
 .banner {
-  background: #f0f8ff;
+  background: #fff;
   color: #333;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
-  opacity: 0;                  /* 最初は透明 */
-  transition: opacity 1s ease; /* 1秒かけて表示/非表示 */
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .banner.visible {
   opacity: 1;                  /* 表示状態 */
+  transform: translateY(0);
 }
 /*ここまで通知バナー*/
 
@@ -44,23 +52,20 @@
   padding: 10px 10px  0 0;
 }
 
-.new-plan-btn .btn {
+.new-plan-btn {
   padding: 6px 12px;
-  background-color: #dc3545;
+  background-color: #ff9800;
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
-}
-
-.new-plan-btn .btn:hover {
-  background-color: #a71d2a;
-}
-
-.add-plan-btn {
   margin-top: 25px;   /* 下げたい分だけ調整 */
   display: inline-block;
+  text-align: center;
 }
 
+.new-plan-btn:hover {
+  background-color: #d97700;
+}
 
 /*simple-calendar*/
 .simple-calendar table {
@@ -112,14 +117,17 @@
   transition: background-color 0.3s ease;
 }
 
-
-/* PC用：横並びでも右端に配置 */
+/*ログアウトボタン*/
 .logout-btn {
+  background-color: #dc3545; /* 赤背景 */
+  border: 2px solid #dc3545; /* 赤い枠線 */
+  padding: 5px 10px;
+  border-radius: 6px;
   text-decoration: none;
-  color: #333;
+  color: #fff;
   position: absolute;
-  top: 10px;    /* 上から10px */
-  right: 10px;  /* 右から10px */
+  top: 10px;
+  right: 10px;
 }
 
 .add-button {  /* 買い物リスト追加ボタン */

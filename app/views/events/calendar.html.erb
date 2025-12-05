@@ -7,15 +7,11 @@
     <div class="calendar-title">
       <h1>📅 <%= @date.strftime("%Y年%-m月") %>のカレンダー</h1>
     </div>
-    <div class="calendar-actions">
-      <div class="account-links">
-        <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="logout-btn">ログアウト</a>
-        <%= link_to "アカウント編集・削除", edit_user_path(current_user), class: "account-edit-link" %>
-        <%= link_to "買い物リスト", shopping_lists_path, class: "shopping-lists-link" %>
-      </div>
-      <div class="new-plan-btn">
-        <%= link_to "新しい予定を作成", new_plan_path, class: "btn add-plan-btn" %>
-      </div>
+    <div class="account-links">
+      <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="logout-btn">ログアウト</a><br>
+      <%= link_to "アカウント編集・削除", edit_user_path(current_user), class: "account-edit-link" %>
+      <%= link_to "買い物リスト", shopping_lists_path, class: "shopping-lists-link" %>
+      <%= link_to "新しい予定を作成", new_plan_path, class: "new-plan-btn" %>
     </div>
   </div>
 
@@ -58,14 +54,15 @@
 </div>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const banners = document.querySelectorAll('.banner');
-    banners.forEach(banner => {
-      banner.classList.add('visible');
-      setTimeout(() => {
-        banner.classList.remove('visible');
-        setTimeout(() => banner.style.display = 'none', 1000);
-      }, 5000);
-    });
+window.addEventListener('turbo:load', () => {
+  const banners = document.querySelectorAll('.banner');
+  banners.forEach(banner => {
+    setTimeout(() => {
+      banner.classList.add('visible')}, 1500);
+    setTimeout(() => {
+      banner.classList.remove('visible');
+      setTimeout(() => banner.style.display = 'none', 2000);
+    }, 5000);
   });
+});
 </script>
