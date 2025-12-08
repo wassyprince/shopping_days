@@ -43,7 +43,7 @@ https://shopping-days.onrender.com
 ・バックエンド：Ruby
 ・インフラ：Ruby on Rails
 ・テスト：Rspec
-・テキストエディタ：
+・テキストエディタ：VScode
 ・タスク管理：GitHub
 
 # ローカルでの動作方法	git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記載。
