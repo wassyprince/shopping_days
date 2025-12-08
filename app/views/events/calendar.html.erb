@@ -5,7 +5,7 @@
 <div class="calendar-page">
   <div class="calendar-header">
     <div class="calendar-title">
-      <h1>📅 <%= @date.strftime("%Y年%-m月") %>のカレンダー</h1>
+      <h1>📅 <%= @date.strftime("%Y年%-m月") %></h1>
       <div class="notification-controls">
         <% if current_user.notification&.enabled? %>
           <%= button_to "通知を無効にする",
@@ -78,7 +78,7 @@ window.addEventListener('turbo:load', () => {
     setTimeout(() => {
       banner.classList.remove('visible');
       setTimeout(() => banner.style.display = 'none', 2000);
-    }, 3000);
+    }, 5000);
   });
 });
 </script>

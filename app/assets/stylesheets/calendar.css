@@ -43,8 +43,13 @@
   margin-top: 40px;       /* 余白を追加 */
 }
 
+.account-edit-link {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 0;
+  white-space: nowrap; 
+}
 
-.account-edit-link,
 .shopping-lists-link {
   text-decoration: none;
   color: #333;
