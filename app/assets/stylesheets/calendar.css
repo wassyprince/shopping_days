@@ -37,6 +37,10 @@
   align-items: flex-start; /* 上揃えにする */
 }
 
+.calendar-header h1 {
+  margin-top: 0;   /* 不要な余白を削除 */
+}
+
 .account-links {
   display: flex;
   flex-direction: column; /* 縦方向に並べる */
