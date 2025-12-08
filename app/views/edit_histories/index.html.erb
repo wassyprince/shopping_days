@@ -25,9 +25,22 @@
           <% when "created" %>
             <%= history.after_name %>（追加）
           <% when "updated" %>
-            名前: <%= history.before_name %> → <%= history.after_name %><br>
-            数量: <%= history.before_quantity %> → <%= history.after_quantity %><br>
-            カテゴリ: <%= history.before_category %> → <%= history.after_category %>
+          <div class="history-entry">
+            <% if history.before_name != history.after_name %>
+              名前: <%= history.before_name %> ⮕ <%= history.after_name %><br>
+            <% end %>
+            <% if history.before_quantity != history.after_quantity %>
+              数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
+            <% end %>
+            <% if history.before_category != history.after_category %>
+              分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
+            <% end %>
+            <% if history.before_purchased != history.after_purchased %>
+              購入済み: 
+              <%= history.before_purchased ? "購入済み" : "未購入" %> ⮕
+              <%= history.after_purchased ? "購入済み" : "未購入" %>
+            <% end %>
+          </div>
           <% when "deleted" %>
             <%= history.before_name %>（削除）
           <% end %>

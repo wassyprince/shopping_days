@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
     before_name = @item.name
     before_quantity = @item.quantity
     before_category = @item.category
+    before_purchased = @item.purchased
     if @item.update(item_params)
       EditHistory.create!(
       user: current_user,
@@ -46,7 +47,9 @@ class ItemsController < ApplicationController
       before_quantity: before_quantity,
       after_quantity: @item.quantity,
       before_category: before_category,
-      after_category: @item.category
+      after_category: @item.category,
+      before_purchased: before_purchased,
+      after_purchased: @item.purchased
     )
       redirect_to @shopping_list, notice: "品物を更新しました"
     else

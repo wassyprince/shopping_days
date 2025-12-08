@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_05_044149) do
     t.integer "after_quantity"
     t.string "before_category"
     t.string "after_category"
+    t.boolean "before_purchased"
+    t.boolean "after_purchased"
     t.index ["item_id"], name: "index_edit_histories_on_item_id"
     t.index ["shopping_list_id"], name: "index_edit_histories_on_shopping_list_id"
     t.index ["user_id"], name: "index_edit_histories_on_user_id"

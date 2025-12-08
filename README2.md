@@ -46,19 +46,21 @@ has many   :edit_histories, , dependent: :nullify
 
 ## EditHistory
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| action          | integer    | null: false                    |
-| item            | references | null: true, foreign_key: true  |
-| user            | references | null: false, foreign_key: true |
-| shopping_list   | references | null: false, foreign_key: true |
-| list_title      | string     | ------------------------------ |
-| before_name     | string     | ------------------------------ |
-| after_name      | string     | ------------------------------ |
-| before_quantity | integer    | ------------------------------ |
-| after_quantity  | integer    | ------------------------------ |
-| before_category | string     | ------------------------------ |
-| after_category  | string     | ------------------------------ |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| action           | integer    | null: false                    |
+| item             | references | null: true, foreign_key: true  |
+| user             | references | null: false, foreign_key: true |
+| shopping_list    | references | null: false, foreign_key: true |
+| list_title       | string     | ------------------------------ |
+| before_name      | string     | ------------------------------ |
+| after_name       | string     | ------------------------------ |
+| before_quantity  | integer    | ------------------------------ |
+| after_quantity   | integer    | ------------------------------ |
+| before_category  | string     | ------------------------------ |
+| after_category   | string     | ------------------------------ |
+| before_purchased | boolean    | ------------------------------ |
+| after_purchased  | boolean    | ------------------------------ |
 
 ### Association
 belongs_to :user
