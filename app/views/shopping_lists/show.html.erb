@@ -23,7 +23,7 @@
         <tr>
           <th>名前</th>
           <th>数量</th>
-          <th>カテゴリ</th>
+          <th>分類</th>
           <th>メモ</th>
           <th>購入済み</th>
           <th>操作</th>
@@ -42,7 +42,7 @@
               <% end %>
             </td>
             <td>
-              <%= link_to "編集", edit_shopping_list_item_path(@shopping_list, item) %> |
+              <%= link_to "編集", edit_shopping_list_item_path(@shopping_list, item) %><br>
               <%= link_to "削除", shopping_list_item_path(@shopping_list, item),
                           method: :delete,
                           data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
@@ -75,7 +75,7 @@
 
   <div>
     <%= f.label :category, "分類" %>
-    <%= f.select :category, ["食料品", "日用品", "その他"], prompt: "選択してください" %>
+    <%= f.select :category, ["食料品", "日用品", "その他"], {prompt: "選択してください"}, { style: "width: 175px;"} %>
   </div>
 
   <div>

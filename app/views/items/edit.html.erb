@@ -8,12 +8,17 @@
 
   <div>
     <%= f.label :quantity, "数量" %><br>
-    <%= f.number_field :quantity, step: 0.1 %>
+    <%= f.number_field :quantity, min: 1, id: "quantity_field" %>
+    <%= button_tag "-", type: "button",
+        onclick: "var q=document.getElementById('quantity_field'); if(q.value>1){q.value--}" %>
+
+    <%= button_tag "+", type: "button",
+        onclick: "var q=document.getElementById('quantity_field'); q.value++" %>
   </div>
 
   <div>
-    <%= f.label :category, "カテゴリ" %><br>
-    <%= f.text_field :category %>
+    <%= f.label :category, "分類" %><br>
+    <%= f.select :category, ["食料品", "日用品", "その他"], {}, { style: "width: 150px;" } %>
   </div>
 
   <div>
