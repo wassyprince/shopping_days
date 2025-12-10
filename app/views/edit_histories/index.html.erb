@@ -2,56 +2,61 @@
   <%= stylesheet_link_tag "edit_history" %>
 <% end %>
 
-<h2>買い物リスト履歴</h2>
+<h2>買い物履歴</h2>
 
 <div class="edit_history_table">
-<table>
-  <thead>
-    <tr>
-      <th>ユーザー</th>
-      <th>リスト名</th>
-      <th>アイテム名</th>
-      <th>アクション</th>
-      <th>日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @edit_histories.each do |history| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= history.user.name %></td>
-        <td><%= history.shopping_list&.title %></td>
-        <td>
-          <% case history.action %>
-          <% when "created" %>
-            <%= history.after_name %>（追加）
-          <% when "updated" %>
-          <div class="history-entry">
-            <% if history.before_name != history.after_name %>
-              <%= history.before_name %> ⮕ <%= history.after_name %><br>
-            <% end %>
-            <% if history.before_quantity != history.after_quantity %>
-              <%= history.before_name %>の数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
-            <% end %>
-            <% if history.before_category != history.after_category %>
-              <%= history.before_name %>の分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
-            <% end %>
-            <% if history.before_purchased != history.after_purchased %>
-              <%= history.before_name %>を
-              <%= history.after_purchased ? "購入済みにしました" : "未購入に戻しました" %><br>             
-            <% end %>
-          </div>
-          <% when "deleted" %>
-            <%= history.before_name %>（削除）
-          <% end %>
-        </td>
-        <td class="<%= history.action %>">
-          <%= t("enums.edit_history.action.#{history.action}") %>
-        </td>
-        <td><%= history.created_at.strftime("%-m月%-d日 %-H:%M") %></td>
+        <th>ユーザー</th>
+        <th>リスト名</th>
+        <th>品物</th>
+        <th>アクション</th>
+        <th>日時</th>
       </tr>
+    </thead>
+    <tbody>
+    <% @grouped_histories.each do |category, histories| %>
+      <tr>
+        <td colspan="5"><strong><%= category %></strong></td>
+      </tr>
+      <% histories.each do |history| %>
+        <tr>
+          <td><%= history.user.name %></td>
+          <td><%= history.shopping_list&.title %></td>
+          <td>
+            <% case history.action %>
+            <% when "created" %>
+              <%= history.after_name %>（追加）
+            <% when "updated" %>
+            <div class="history-entry">
+              <% if history.before_name != history.after_name %>
+                <%= history.before_name %> ⮕ <%= history.after_name %><br>
+              <% end %>
+              <% if history.before_quantity != history.after_quantity %>
+                <%= history.before_name %>の数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
+              <% end %>
+              <% if history.before_category != history.after_category %>
+                <%= history.before_name %>の分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
+              <% end %>
+              <% if history.before_purchased != history.after_purchased %>
+                <%= history.before_name %>を
+                <%= history.after_purchased ? "購入済みにしました" : "未購入に戻しました" %><br>             
+              <% end %>
+            </div>
+            <% when "deleted" %>
+              <%= history.before_name %>（削除）
+            <% end %>
+          </td>
+          <td class="<%= history.action %>">
+            <%= t("enums.edit_history.action.#{history.action}") %>
+          </td>
+          <td><%= history.created_at.strftime("%-m月%-d日 %-H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
     <% end %>
-  </tbody>
-</table>
+  </table>
 </div>
 
 <%= link_to "買い物リスト一覧に戻る", shopping_lists_path %>

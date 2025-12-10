@@ -3,11 +3,12 @@ td.updated { color: blue; text-align: center;}
 td.deleted { color: red; text-align: center;}
 
 .edit_history_table table{
-  border-collapse: collapse; /* 枠線を重ねない */
+  border-collapse: collapse;
   width: 100%;
 }
 
 .edit_history_table th, 
 .edit_history_table td {
-  border: 1px solid #ccc; /* 枠線の色や太さ */
+  border: 1px solid #ccc;
+  width: 20%;
 }
