@@ -8,10 +8,10 @@ ShoppingDays
 https://shopping-days.onrender.com
 
 # テスト用アカウント
-・Basic認証ID：admin
-・Basic認証パスワード：P@ssw0rd2345
-・メールアドレス：
-・パスワード：
+・Basic認証ID：admin  
+・Basic認証パスワード：P@ssw0rd2345  
+・メールアドレス：  
+・パスワード：  
 
 # 利用方法
 このアプリケーションの基本的な利用方法は以下の通りです。
@@ -73,25 +73,25 @@ https://shopping-days.onrender.com
 ・タスク管理：GitHub
 
 # ローカルでの動作方法
-% git clone https://github.com/wassyprince/shopping_days
-% cd shopping-days
-% bundle install
-% rails db:create
-% rails db:migrate
-% rails server
+% git clone https://github.com/wassyprince/shopping_days  
+% cd shopping-days  
+% bundle install  
+% rails db:create  
+% rails db:migrate  
+% rails server  
 
 # 工夫したポイント	制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
-・GitHubにおいて Project と Issue によるタスク管理を行い、開発の進捗を可視化しました。
-・ユーザー管理機能には Devise を導入し、制作作業の効率化を実現しました。
-・バナー通知については JavaScript を用いて表示秒数などの動きを付与し、UIを改善しました。
-・Simple Calendar を利用してユーザーの予定をカレンダー形式で表示し、直感的にスケジュールを把握できる機能を提供しました。
-・買い物リストには 購入済みチェックボックスを実装し、ステータス管理を可能にしました。
-・RSpec による単体テストを導入し、AIを活用して効率的にコードを生成することで、開発効率と品質向上を両立しました。
+・GitHubにおいて Project と Issue によるタスク管理を行い、開発の進捗を可視化しました。  
+・ユーザー管理機能には Devise を導入し、制作作業の効率化を実現しました。  
+・バナー通知については JavaScript を用いて表示秒数などの動きを付与し、UIを改善しました。  
+・Simple Calendar を利用してユーザーの予定をカレンダー形式で表示し、直感的にスケジュールを把握できる機能を提供しました。  
+・買い物リストには 購入済みチェックボックスを実装し、ステータス管理を可能にしました。  
+・RSpec による単体テストを導入し、AIを活用して効率的にコードを生成することで、開発効率と品質向上を両立しました。  
 
 # 改善点	より改善するとしたらどこか、それはどのようにしてやるのか。
-- 時刻ベース通知を実装する（例：毎朝9時に今日の予定を通知）
- ・この場合は Notification モデルを導入し、ユーザーと1対多の関係を持たせて時刻や種類を管理
+- 時刻ベース通知を実装する（例：毎朝9時に今日の予定を通知）  
+ ・この場合は Notification モデルを導入し、ユーザーと1対多の関係を持たせて時刻や種類を管理  
 
 # 制作時間
-・総工数：95時間/人
-・期間：17日間
+・総工数：95時間/人  
+・期間：17日間  
