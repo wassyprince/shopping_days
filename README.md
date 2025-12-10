@@ -65,12 +65,12 @@ https://shopping-days.onrender.com
 [![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
 
 # 開発環境
-・フロントエンド：HTML/CSS/Javascript
-・バックエンド：Ruby
-・インフラ：Ruby on Rails
-・テスト：RSpec
-・テキストエディタ：VScode
-・タスク管理：GitHub
+・フロントエンド：HTML/CSS/Javascript  
+・バックエンド：Ruby  
+・インフラ：Ruby on Rails  
+・テスト：RSpec  
+・テキストエディタ：VScode  
+・タスク管理：GitHub  
 
 # ローカルでの動作方法
 % git clone https://github.com/wassyprince/shopping_days  
