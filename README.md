@@ -74,7 +74,7 @@ https://shopping-days.onrender.com
 
 # ローカルでの動作方法
 % git clone https://github.com/wassyprince/shopping_days  
-% cd shopping-days  
+% cd shopping_days  
 % bundle install  
 % rails db:create  
 % rails db:migrate  
