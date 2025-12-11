@@ -68,7 +68,10 @@ class ItemsController < ApplicationController
     action: :deleted,
     before_name: @item.name,
     before_quantity: @item.quantity,
-    before_category: @item.category
+    before_category: @item.category,
+    after_name: @item.name,       
+    after_quantity: @item.quantity, 
+    after_category: @item.category  
   )
 
     @item.destroy
