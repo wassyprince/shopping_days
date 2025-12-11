@@ -2,6 +2,11 @@ td.created { color: green; font-weight: bold; text-align: center;}
 td.updated { color: blue; text-align: center;}
 td.deleted { color: red; text-align: center;}
 
+td.list_name_updated,
+td.list_date_updated {
+  text-align: center;
+}
+
 .edit_history_table table{
   border-collapse: collapse;
   width: 100%;

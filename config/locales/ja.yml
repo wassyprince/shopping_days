@@ -21,6 +21,8 @@ ja:
         created: "作成"
         updated: "更新"
         deleted: "削除"
+        list_name_updated: "リスト名変更"
+        list_date_updated: "リスト日付変更"
   activerecord:
     models:
       plan: 予定

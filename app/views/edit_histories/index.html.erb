@@ -9,7 +9,7 @@
     <thead>
       <tr>
         <th>ユーザー</th>
-        <th>リスト名</th>
+        <th>買い物リスト</th>
         <th>品物</th>
         <th>アクション</th>
         <th>日時</th>
@@ -22,8 +22,21 @@
       </tr>
       <% histories.each do |history| %>
         <tr>
-          <td><%= history.user.name %></td>
-          <td><%= history.shopping_list&.title %></td>
+          <td><%= history.user.name %></td>          
+          <td>
+            <% case history.action %>
+            <% when "list_name_updated" %>
+              <div class="history-entry">
+              「<%= history.before_list_title %>」⮕「<%= history.after_list_title %>」
+              </div>
+            <% when "list_date_updated" %>
+            <div class="history-entry">
+              「<%= history.before_date %>」⮕「<%= history.after_date %>」
+            </div>
+            <% else %>
+              <%= history.shopping_list&.title %>
+            <% end %>
+          </td>
           <td>
             <% case history.action %>
             <% when "created" %>
@@ -43,16 +56,19 @@
                 <%= history.before_name %>を
                 <%= history.after_purchased ? "購入済みにしました" : "未購入に戻しました" %><br>             
               <% end %>
+              <% if history.before_memo != history.after_memo %>
+                メモ: <%= history.after_memo.presence || "-" %><br>
+              <% end %>
             </div>
             <% when "deleted" %>
-              <%= history.before_name %>（削除）
+            <%= history.before_name %>（削除）
             <% end %>
           </td>
           <td class="<%= history.action %>">
             <%= t("enums.edit_history.action.#{history.action}") %>
           </td>
           <td><%= history.created_at.strftime("%-m月%-d日 %-H:%M") %></td>
-        </tr>
+        </tr>    
       <% end %>
     </tbody>
     <% end %>

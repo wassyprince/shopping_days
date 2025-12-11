@@ -34,7 +34,7 @@ class ShoppingListsController < ApplicationController
 
   def update
     if @shopping_list.update(shopping_list_params)
-      EditHistory.create!(user: current_user, shopping_list: @shopping_list, action: :updated, list_title: @shopping_list.title)
+      record_list_history(@shopping_list)
       redirect_to @shopping_list, notice: "買い物リストを更新しました"
     else
       render :edit, status: :unprocessable_entity
@@ -69,5 +69,27 @@ class ShoppingListsController < ApplicationController
 
   def shopping_list_params
     params.require(:shopping_list).permit(:date, :title)
+  end
+
+  def record_list_history(list)
+    if list.saved_change_to_title?
+      EditHistory.create!(
+        user: current_user,
+        shopping_list: list,
+        action: :list_name_updated,
+        before_list_title: list.title_before_last_save,
+        after_list_title: list.title
+      )
+    end
+
+    if list.saved_change_to_date?
+      EditHistory.create!(
+        user: current_user,
+        shopping_list: list,
+        action: :list_date_updated,
+        before_date: list.date_before_last_save,
+        after_date: list.date
+      )
+    end
   end
 end
