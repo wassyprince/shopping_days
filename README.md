@@ -31,7 +31,7 @@ https://shopping-days.onrender.com
 対象とするのは、自分や家族をはじめ、日常的に買い物をする主婦・主夫などの生活者です。  
 誰もが簡単に操作でき、手軽に買い物リストを管理できることで、買い忘れを防止できるアプリを目指しました。
 
-# 実装した機能についての画像やGIFおよびその説明※	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
+# 実装した機能についての画像やGIFおよびその説明
 - ユーザー管理機能  
  ・ユーザーログイン／ログアウト  
  ・ユーザー情報変更  
@@ -48,8 +48,8 @@ https://shopping-days.onrender.com
 - スケジュール機能  
  ・スケジュールの表示・作成・編集・削除  
 
-- 編集履歴参照機能
- ・買い物リストの名前と日付の変更履歴表示
+- 編集履歴参照機能  
+ ・買い物リストの名前と日付の変更履歴表示  
  ・品物の追加・編集・削除の履歴表示  
 
 - 通知機能  
@@ -60,7 +60,7 @@ https://shopping-days.onrender.com
 # 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/6d03af1c8450edc2e35fc0449a615922.png)](https://gyazo.com/6d03af1c8450edc2e35fc0449a615922)
+[![Image from Gyazo](https://i.gyazo.com/f7180d3083f4ad51a23d308a8798333f.png)](https://gyazo.com/f7180d3083f4ad51a23d308a8798333f)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
