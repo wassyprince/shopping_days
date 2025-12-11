@@ -66,20 +66,20 @@ https://shopping-days.onrender.com
 [![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
 
 # 開発環境
-・フロントエンド：HTML/CSS/Javascript  
-・バックエンド：Ruby  
-・インフラ：Ruby on Rails  
-・テスト：RSpec  
-・テキストエディタ：VScode  
-・タスク管理：GitHub  
+フロントエンド：HTML/CSS/Javascript  
+バックエンド：Ruby  
+インフラ：Ruby on Rails  
+テスト：RSpec  
+テキストエディタ：VScode  
+タスク管理：GitHub  
 
 # ローカルでの動作方法
-% git clone https://github.com/wassyprince/shopping_days  
-% cd shopping_days  
-% bundle install  
-% rails db:create  
-% rails db:migrate  
-% rails server  
+git clone https://github.com/wassyprince/shopping_days  
+cd shopping_days  
+bundle install  
+rails db:create  
+rails db:migrate  
+rails server  
 
 # 工夫したポイント	制作背景・使用技術・開発方法・タスク管理など、企業へＰＲしたい事柄を記載。
 ・GitHubにおいて Project と Issue によるタスク管理を行い、開発の進捗を可視化しました。  

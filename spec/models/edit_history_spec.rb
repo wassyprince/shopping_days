@@ -6,7 +6,7 @@ RSpec.describe EditHistory, type: :model do
       it '正しい値なら登録できる' do
         user = User.create!(name: 'test', email: 'test@example.com', password: '000000')
         shopping_list = ShoppingList.create!(date: Date.today, title: '買い物', user: user)
-        history = EditHistory.new(user: user, shopping_list: shopping_list, action: 'created')
+        history = EditHistory.new(user: user, shopping_list: shopping_list, action: 'created',  after_name: 'りんご', after_category: 'フルーツ')
         expect(history).to be_valid
       end
     end
