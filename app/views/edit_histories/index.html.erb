@@ -16,23 +16,15 @@
       </tr>
     </thead>
     <tbody>
-    <% @grouped_histories.each do |category, histories| %>
-      <tr>
-        <td colspan="5"><strong><%= category %></strong></td>
-      </tr>
-      <% histories.each do |history| %>
+      <% @edit_histories.each do |history| %>
         <tr>
           <td><%= history.user.name %></td>          
           <td>
             <% case history.action %>
             <% when "list_name_updated" %>
-              <div class="history-entry">
-              「<%= history.before_list_title %>」⮕「<%= history.after_list_title %>」
-              </div>
+              <%= history.before_list_title %>」⮕「<%= history.after_list_title %>」
             <% when "list_date_updated" %>
-            <div class="history-entry">
-              「<%= history.before_date %>」⮕「<%= history.after_date %>」
-            </div>
+             「<%= history.before_date %>」⮕「<%= history.after_date %>」
             <% else %>
               <%= history.shopping_list&.title %>
             <% end %>
@@ -42,7 +34,6 @@
             <% when "created" %>
               <%= history.after_name %>（追加）
             <% when "updated" %>
-            <div class="history-entry">
               <% if history.before_name != history.after_name %>
                 <%= history.before_name %> ⮕ <%= history.after_name %><br>
               <% end %>
@@ -50,7 +41,7 @@
                 <%= history.before_name %>の数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
               <% end %>
               <% if history.before_category != history.after_category %>
-                <%= history.before_name %>の分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
+                分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
               <% end %>
               <% if history.before_purchased != history.after_purchased %>
                 <%= history.before_name %>を
@@ -59,7 +50,6 @@
               <% if history.before_memo != history.after_memo %>
                 メモ: <%= history.after_memo.presence || "-" %><br>
               <% end %>
-            </div>
             <% when "deleted" %>
             <%= history.before_name %>（削除）
             <% end %>
@@ -71,7 +61,6 @@
         </tr>    
       <% end %>
     </tbody>
-    <% end %>
   </table>
 </div>
 
