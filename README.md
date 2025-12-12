@@ -8,10 +8,10 @@ ShoppingDays
 https://shopping-days.onrender.com
 
 # テスト用アカウント
-・Basic認証ID：admin  
-・Basic認証パスワード：P@ssw0rd2345  
-・メールアドレス：  
-・パスワード：  
+Basic認証ID：admin  
+Basic認証パスワード：P@ssw0rd2345  
+メールアドレス：  
+パスワード：  
 
 # 利用方法
 このアプリケーションの基本的な利用方法は以下の通りです。
@@ -60,7 +60,7 @@ https://shopping-days.onrender.com
 # 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/f7180d3083f4ad51a23d308a8798333f.png)](https://gyazo.com/f7180d3083f4ad51a23d308a8798333f)
+[![Image from Gyazo](https://i.gyazo.com/4199bdbeca3c40d983e7a12ed71d3748.png)](https://gyazo.com/4199bdbeca3c40d983e7a12ed71d3748)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
@@ -94,5 +94,5 @@ rails server
  ・この場合は Notification モデルを導入し、ユーザーと1対多の関係を持たせて時刻や種類を管理  
 
 # 制作時間
-・総工数：102時間/人  
-・期間：18日間  
+総工数：102時間/人  
+期間：18日間  
