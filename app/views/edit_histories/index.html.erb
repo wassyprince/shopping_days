@@ -4,6 +4,30 @@
 
 <h2>買い物履歴</h2>
 
+<%= form_with url: edit_histories_path, method: :get, local: true do %>
+  <label for="user_id">👤ユーザー</label>
+  <%= select_tag :user_id,
+        options_for_select([["すべて", ""]] + User.all.map { |u| [u.name, u.id] }, params[:user_id]), class: "filter-select" %>
+  <label for="shopping_list_id">📝買い物リスト</label>
+  <%= select_tag :shopping_list_id,
+        options_for_select([["すべて", ""]] + ShoppingList.all.map { |l| [l.title, l.id] }, params[:shopping_list_id]),  class: "filter-select" %>
+  <label for="category">🔍分類</label>
+  <%= select_tag :category, options_for_select([["すべて", ""], "日用品", "食料品", "その他"], params[:category]),  class: "filter-select" %>
+  <label for="action_type">💻アクション</label>
+   <%= select_tag :action_type,
+        options_for_select([
+          ["すべて", ""],
+          ["追加", "created"],
+          ["更新", "updated"],
+          ["削除", "deleted"],
+          ["リスト名変更", "list_name_updated"],
+          ["リスト日付変更", "list_date_updated"]
+        ], params[:action_type]), class: "filter-select" %>
+  <label for="date">📅日付</label>
+  <%= date_field_tag :date, params[:date],  class: "filter-select" %>
+  <%= submit_tag "フィルタ" %>
+<% end %>
+
 <div class="edit_history_table">
   <table>
     <thead>
@@ -35,20 +59,20 @@
               <%= history.after_name %>を追加しました
             <% when "updated" %>
               <% if history.before_name != history.after_name %>
-                名前を<%= history.before_name %> ⮕ <%= history.after_name %><br>
+                名前を<%= history.before_name %> ⮕ <%= history.after_name %>に変更<br>
               <% end %>
               <% if history.before_quantity != history.after_quantity %>
-                <%= history.after_name %>の数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
+                <%= history.after_name %>の数量を<%= history.before_quantity %> ⮕ <%= history.after_quantity %>に変更<br>
               <% end %>
               <% if history.before_category != history.after_category %>
-                分類: <%= history.before_category %> ⮕ <%= history.after_category %><br>
+                分類を<%= history.before_category %> ⮕ <%= history.after_category %>に変更<br>
               <% end %>
               <% if history.before_purchased != history.after_purchased %>
                 <%= history.before_name %>を
                 <%= history.after_purchased ? "購入済みにしました" : "未購入に戻しました" %><br>             
               <% end %>
               <% if history.before_memo != history.after_memo %>
-                メモ:「<%= history.after_memo.presence || "-" %>」に変更しました<br>
+                メモ:「<%= history.after_memo.presence || "-" %>」に変更<br>
               <% end %>
             <% when "deleted" %>
             <%= history.before_name %>を削除しました
