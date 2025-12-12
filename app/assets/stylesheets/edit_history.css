@@ -19,8 +19,7 @@ td.list_date_updated {
 }
 
 .filter-select {
-  height: 2em;       /* 縦の高さを統一 */
-  
-  font-size: 0.8em;      /* 文字サイズを揃える */
-  line-height: 1.2;  /* テキストの縦位置を安定させる */
+  height: 2em;  
+  font-size: 0.8em; 
+  line-height: 1.2;  
 }
