@@ -11,7 +11,7 @@ has_many :shopping_lists, dependent: :destroy
 has_many :plan_users
 has_many :plans, through: :plan_users
 has_many :edit_histories, dependent: :nullify
-has_one :notification, dependent: :destroy
+has_one  :notification, dependent: :destroy
 
 
 ## ShoppingLists
@@ -46,21 +46,27 @@ has many   :edit_histories, , dependent: :nullify
 
 ## EditHistory
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| action           | integer    | null: false                    |
-| item             | references | null: true, foreign_key: true  |
-| user             | references | null: false, foreign_key: true |
-| shopping_list    | references | null: false, foreign_key: true |
-| list_title       | string     | ------------------------------ |
-| before_name      | string     | ------------------------------ |
-| after_name       | string     | ------------------------------ |
-| before_quantity  | integer    | ------------------------------ |
-| after_quantity   | integer    | ------------------------------ |
-| before_category  | string     | ------------------------------ |
-| after_category   | string     | ------------------------------ |
-| before_purchased | boolean    | ------------------------------ |
-| after_purchased  | boolean    | ------------------------------ |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| action            | integer    | null: false                    |
+| item              | references | null: true, foreign_key: true  |
+| user              | references | null: false, foreign_key: true |
+| shopping_list     | references | null: false, foreign_key: true |
+| list_title        | string     | ------------------------------ |
+| before_name       | string     | ------------------------------ |
+| after_name        | string     | ------------------------------ |
+| before_quantity   | integer    | ------------------------------ |
+| after_quantity    | integer    | ------------------------------ |
+| before_category   | string     | ------------------------------ |
+| after_category    | string     | ------------------------------ |
+| before_purchased  | boolean    | ------------------------------ |
+| after_purchased   | boolean    | ------------------------------ |
+| before_list_title | string     | ------------------------------ |
+| after_list_title  | string     | ------------------------------ |
+| before_date       | date       | ------------------------------ |
+| after_date        | date       | ------------------------------ |
+| before_memo       | text       | ------------------------------ |
+| after_memo        | text       | ------------------------------ |
 
 ### Association
 belongs_to :user

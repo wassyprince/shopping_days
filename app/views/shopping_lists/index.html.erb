@@ -3,13 +3,13 @@
 <% end %>
 
 <h1>買い物リスト</h1>
-<%= link_to "買い物履歴", edit_histories_path, class: "edit-history-link" %>
+<%= link_to "＜買い物履歴はこちら＞", edit_histories_path, class: "edit-history-link" %>
 
 <ul>
   <% @shopping_lists.each do |shopping_list| %>
     <li>
-      <%= link_to shopping_list_path(shopping_list) do %>      
-      <%= shopping_list.date.strftime("%Y年%m月%d日") %>
+      <%= link_to shopping_list_path(shopping_list), style: "text-decoration: none;" do %>      
+      <%= shopping_list.date.strftime("%Y年%m月%d日") %>:
       <strong><%= shopping_list.title %></strong>
       <% end %>
       

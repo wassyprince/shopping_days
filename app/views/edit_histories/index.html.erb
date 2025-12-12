@@ -22,9 +22,9 @@
           <td>
             <% case history.action %>
             <% when "list_name_updated" %>
-              <%= history.before_list_title %>」⮕「<%= history.after_list_title %>」
+             「<%= history.before_list_title %>」⮕「<%= history.after_list_title %>」
             <% when "list_date_updated" %>
-             「<%= history.before_date %>」⮕「<%= history.after_date %>」
+             <%= history.before_date %> ⮕ <%= history.after_date %>
             <% else %>
               <%= history.shopping_list&.title %>
             <% end %>
