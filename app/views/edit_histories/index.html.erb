@@ -32,10 +32,10 @@
           <td>
             <% case history.action %>
             <% when "created" %>
-              <%= history.after_name %>（追加）
+              <%= history.after_name %>を追加しました
             <% when "updated" %>
               <% if history.before_name != history.after_name %>
-                <%= history.before_name %> ⮕ <%= history.after_name %><br>
+                名前: <%= history.before_name %> ⮕ <%= history.after_name %><br>
               <% end %>
               <% if history.before_quantity != history.after_quantity %>
                 <%= history.before_name %>の数量: <%= history.before_quantity %> ⮕ <%= history.after_quantity %><br>
@@ -48,10 +48,10 @@
                 <%= history.after_purchased ? "購入済みにしました" : "未購入に戻しました" %><br>             
               <% end %>
               <% if history.before_memo != history.after_memo %>
-                メモ: <%= history.after_memo.presence || "-" %><br>
+                メモ:「<%= history.after_memo.presence || "-" %>」に変更しました
               <% end %>
             <% when "deleted" %>
-            <%= history.before_name %>（削除）
+            <%= history.before_name %>を削除しました
             <% end %>
           </td>
           <td class="<%= history.action %>">
