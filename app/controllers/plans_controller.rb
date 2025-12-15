@@ -6,9 +6,9 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = current_user.plans.build(plan_params)
-    @plan.users << current_user
+    @plan = current_user.plans.build(plan_params)    
     if @plan.save
+      @plan.users << current_user
       redirect_to calendar_path, notice: "予定を作成しました"
     else
       render :new, status: :unprocessable_entity
