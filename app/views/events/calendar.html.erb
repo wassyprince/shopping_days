@@ -42,7 +42,7 @@
       <%= date.day %>
       <% if @shopping_counts[date].present? %>
         <%= link_to "+", new_shopping_list_path(date: date), class: "add-button" %>
-        <%= link_to "🛒 #{@shopping_counts[date]}件", shopping_lists_path(date: date), class: "shopping-count-link" %>
+        <%= link_to "#{@shopping_counts[date]}件", shopping_lists_path(date: date), class: "shopping-count-link" %>
       <% else %>
         <%= link_to "+", new_shopping_list_path(date: date), class: "add-button" %>
       <% end %>
