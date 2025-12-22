@@ -23,3 +23,25 @@ td.list_date_updated {
   font-size: 0.8em; 
   line-height: 1.2;  
 }
+
+form {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* 左がラベル、右が入力 */
+  row-gap: 10px; /* 行間 */
+  column-gap: 10px; /* ラベルと入力の間隔 */
+  align-items: center; /* 縦中央揃え */
+  max-width: 500px; /* フォームの幅を抑える */
+}
+
+form label {
+  display: flex;
+  align-items: center; /* 絵文字と文字を縦中央揃え */
+  font-size: 0.95em;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 0.95em;
+  box-sizing: border-box;
+}
