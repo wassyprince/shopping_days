@@ -52,21 +52,21 @@ has many   :edit_histories, , dependent: :nullify
 | item              | references | null: true, foreign_key: true  |
 | user              | references | null: false, foreign_key: true |
 | shopping_list     | references | null: false, foreign_key: true |
-| list_title        | string     | ------------------------------ |
-| before_name       | string     | ------------------------------ |
-| after_name        | string     | ------------------------------ |
-| before_quantity   | integer    | ------------------------------ |
-| after_quantity    | integer    | ------------------------------ |
-| before_category   | string     | ------------------------------ |
-| after_category    | string     | ------------------------------ |
-| before_purchased  | boolean    | ------------------------------ |
-| after_purchased   | boolean    | ------------------------------ |
-| before_list_title | string     | ------------------------------ |
-| after_list_title  | string     | ------------------------------ |
-| before_date       | date       | ------------------------------ |
-| after_date        | date       | ------------------------------ |
-| before_memo       | text       | ------------------------------ |
-| after_memo        | text       | ------------------------------ |
+| list_title        | string     | null: true                     |
+| before_name       | string     | null: true                     |
+| after_name        | string     | null: true                     |
+| before_quantity   | integer    | null: true                     |
+| after_quantity    | integer    | null: true                     |
+| before_category   | string     | null: true                     |
+| after_category    | string     | null: true                     |
+| before_purchased  | boolean    | null: true                     |
+| after_purchased   | boolean    | null: true                     |
+| before_list_title | string     | null: true                     |
+| after_list_title  | string     | null: true                     |
+| before_date       | date       | null: true                     |
+| after_date        | date       | null: true                     |
+| before_memo       | text       | null: true                     |
+| after_memo        | text       | null: true                     |
 
 ### Association
 belongs_to :user
