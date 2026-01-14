@@ -58,8 +58,8 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: mysql2
   database: shopping_days_production
-  username: shopping_days
-  password: <%= ENV["SHOPPING_DAYS_DATABASE_PASSWORD"] %>
+  username: root
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  socket: /var/lib/mysql/mysql.sock
