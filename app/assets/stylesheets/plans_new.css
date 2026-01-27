@@ -1,0 +1,8 @@
+@media (max-width: 600px) { 
+  select[id^="plan_start_time_"], 
+  select[id^="plan_end_time_"]   { 
+    width: auto; 
+    display: inline-block; 
+    margin-right: 4px; 
+  } 
+}

@@ -1,3 +1,7 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "plans_new" %>
+<% end %>
+
 <h2>新しい予定を作成</h2>
 
 <% if @plan.errors.any? %>
