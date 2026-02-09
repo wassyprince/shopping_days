@@ -20,9 +20,9 @@ class EventsController < ApplicationController
         Date.today
       end
     
-      if flash[:show_banner] && current_user.notification&.enabled?
+    if flash[:show_banner] && current_user.notification&.enabled?
         @today_lists = ShoppingList.where(date: Date.today)
         @today_plans = current_user.plans.where(start_time: Date.today.all_day)
-      end
+    end
   end
 end
