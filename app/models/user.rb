@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :plans, through: :plan_users
   has_many :edit_histories, dependent: :destroy
   has_one :notification, dependent: :destroy
+  has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
   
   after_create :create_notification
 

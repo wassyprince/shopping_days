@@ -1,6 +1,7 @@
 class Plan < ApplicationRecord
   has_many :plan_users, dependent: :destroy
   has_many :users, through: :plan_users
+  belongs_to :owner, class_name: "User"
 
   validates :title, presence: true
   validates :start_time, presence: true

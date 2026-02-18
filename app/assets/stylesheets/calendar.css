@@ -166,6 +166,17 @@
   margin-right: 2px;
 }
 
+.color-0 { background: #4f81bd; color: #fff; } 
+.color-1 { background: #c0504d; color: #fff; } 
+.color-2 { background: #9bbb59; color: #fff; } 
+.color-3 { background: #8064a2; color: #fff; } 
+.color-4 { background: #4bacc6; color: #fff; } 
+.color-5 { background: #f79646; color: #fff; } 
+.color-6 { background: #92d050; color: #fff; } 
+.color-7 { background: #00b0f0; color: #fff; } 
+.color-8 { background: #7030a0; color: #fff; } 
+.color-9 { background: #ff5050; color: #fff; }
+
 @media (max-width: 768px) {
   .logout-btn {
     position: absolute;

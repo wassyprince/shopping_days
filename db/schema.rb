@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_11_054611) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_17_014026) do
   create_table "edit_histories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "action", null: false
     t.bigint "user_id", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_11_054611) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "owner_id"
   end
 
   create_table "shopping_lists", charset: "utf8mb3", force: :cascade do |t|
