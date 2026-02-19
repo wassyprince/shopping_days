@@ -12,7 +12,7 @@ has_many :plan_users
 has_many :plans, through: :plan_users
 has_many :edit_histories, dependent: :nullify
 has_one  :notification, dependent: :destroy
-
+has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
 
 ## ShoppingLists
 
@@ -97,6 +97,7 @@ belongs_to :user
 ### Association
 has_many :plan_users, dependent: :destroy
 has_many :users, through: :plan_users
+belongs_to :owner, class_name: "User"
 
 
 ## Plan_User
