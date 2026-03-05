@@ -93,6 +93,7 @@ belongs_to :user
 | note        |	text	     | null: true                     |
 | start_time	| datetime	 | null: false                    |
 | end_time    |	datetime	 | null: false                    |
+| owner_id    | integer    | null: true                     | 
 
 ### Association
 has_many :plan_users, dependent: :destroy

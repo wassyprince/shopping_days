@@ -60,7 +60,7 @@ Basic認証パスワード：P@ssw0rd2345
  ・ 通知の ON/OFF 切り替え可能  
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/4199bdbeca3c40d983e7a12ed71d3748.png)](https://gyazo.com/4199bdbeca3c40d983e7a12ed71d3748)
+[![Image from Gyazo](https://i.gyazo.com/267e23de471ae6ff67d3d797a1253616.png)](https://gyazo.com/267e23de471ae6ff67d3d797a1253616)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
