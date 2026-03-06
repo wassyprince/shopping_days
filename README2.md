@@ -8,9 +8,9 @@
 
 ### Association
 has_many :shopping_lists, dependent: :destroy
-has_many :plan_users
+has_many :plan_users, dependent: :destroy
 has_many :plans, through: :plan_users
-has_many :edit_histories, dependent: :nullify
+has_many :edit_histories, dependent: :destroy
 has_one  :notification, dependent: :destroy
 has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
 
@@ -98,7 +98,7 @@ belongs_to :user
 ### Association
 has_many :plan_users, dependent: :destroy
 has_many :users, through: :plan_users
-belongs_to :owner, class_name: "User"
+belongs_to :owner, class_name: "User", optional: true
 
 
 ## Plan_User
