@@ -67,9 +67,10 @@ Basic認証パスワード：P@ssw0rd2345
 
 # 開発環境
 フロントエンド：HTML/CSS/Javascript  
-バックエンド：Ruby  
-インフラ：Ruby on Rails  
-テスト：RSpec  
+バックエンド：Ruby on Rails 
+インフラ：AWS(EC2)  
+テスト：RSpec
+認証：Devise  
 テキストエディタ：VScode  
 タスク管理：GitHub  
 
