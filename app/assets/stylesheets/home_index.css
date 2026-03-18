@@ -148,12 +148,21 @@
   100% { left: -120%; }
 }
 
+/* 親要素（h2）自体は動かさない */
 h2.float {
   display: inline-block;
-  transition: transform 0.6s ease, text-shadow 0.6s ease, opacity 0.6s ease;
 }
 
-h2.float.active {
+/* 各文字（span）にアニメーションを設定 */
+h2.float span {
+  display: inline-block; /* 浮き上がらせるために必須 */
+  transition: transform 0.6s ease, text-shadow 0.6s ease, opacity 0.6s ease;
+  transition-delay: calc(0.1s * var(--i)); /* JSで付与した番号で時間差をつける */
+  opacity: 0.8; /* 初期状態を少し薄くするなどはお好みで */
+}
+
+/* JSで active クラスがついた時の各文字の動き */
+h2.float.active span {
   transform: translateY(-4px) scale(1.05);
   text-shadow: 0 4px 12px rgba(255, 215, 0, 0.6);
   opacity: 1;

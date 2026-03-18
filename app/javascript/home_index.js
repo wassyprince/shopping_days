@@ -20,12 +20,24 @@ document.addEventListener("turbo:load", () => {
 
 document.addEventListener("turbo:load", () => {
   const h2 = document.querySelector("h2.float");
+  if (!h2) return;
 
-  setInterval(() => {
+  // テキストを一文字ずつ<span>で囲む（初回のみ）
+  const text = h2.textContent;
+  h2.innerHTML = text.split("").map((char, i) => 
+    `<span style="--i: ${i}">${char === " " ? "&nbsp;" : char}</span>`
+  ).join("");
+
+  const intervalId = setInterval(() => {
     h2.classList.add("active");
-
+    
+    // 0.6s（上昇）+ 文字数分の遅延を考慮してクラスを外す
     setTimeout(() => {
       h2.classList.remove("active");
-    }, 600); // 浮き上がり時間と合わせる
-  }, 2000);
+    }, 1500); 
+  }, 3000); // 間隔を少し広げると綺麗に見えます
+
+  document.addEventListener("turbo:before-cache", () => {
+    clearInterval(intervalId);
+  }, { once: true });
 });
