@@ -59,6 +59,9 @@ Basic認証パスワード：P@ssw0rd2345
  ・「今日の買い物リスト」と「今日の予定」がある場合、ログイン時にバナー通知を表示  
  ・ 通知の ON/OFF 切り替え可能  
 
+- 予定色分け機能  
+ ・ユーザーごとに予定表示の色が異なる  
+
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/267e23de471ae6ff67d3d797a1253616.png)](https://gyazo.com/267e23de471ae6ff67d3d797a1253616)
 
