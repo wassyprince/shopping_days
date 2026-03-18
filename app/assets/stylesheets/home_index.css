@@ -100,6 +100,61 @@
   color: #fff;
 }
 
+.glow {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.8) 50%,
+    transparent 100%
+  );
+  animation: flash 0.8s ease-out;
+}
+
+@keyframes flash {
+  0% { left: -120%; }
+  100% { left: 120%; }
+}
+
+h2.shine-left {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: #000;
+}
+
+h2.shine-left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(255,255,255,0.8) 50%,
+    transparent 100%
+  );
+  animation: slide-left 1.2s linear infinite;
+}
+
+@keyframes slide-left {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
 /* レスポンシブ調整 */
 @media (max-width: 480px) {
   .app-title {
