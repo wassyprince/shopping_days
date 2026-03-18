@@ -17,3 +17,15 @@ document.addEventListener("turbo:load", () => {
     toggle = !toggle;
   }, 1200);
 });
+
+document.addEventListener("turbo:load", () => {
+  const h2 = document.querySelector("h2.float");
+
+  setInterval(() => {
+    h2.classList.add("active");
+
+    setTimeout(() => {
+      h2.classList.remove("active");
+    }, 600); // 浮き上がり時間と合わせる
+  }, 2000);
+});
