@@ -63,10 +63,8 @@ Basic認証パスワード：P@ssw0rd2345
  ・ユーザーごとに予定表示の色が異なる  
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/267e23de471ae6ff67d3d797a1253616.png)](https://gyazo.com/267e23de471ae6ff67d3d797a1253616)
 
 # 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/25830fcc36e7dd6696e5bc19b88243e6.png)](https://gyazo.com/25830fcc36e7dd6696e5bc19b88243e6)
 
 # 開発環境
 フロントエンド：HTML/CSS/Javascript  
