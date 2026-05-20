@@ -9,10 +9,6 @@ ShoppingDays
 # URL
 http://35.79.55.190/
 
-# テスト用アカウント
-Basic認証ID：admin  
-Basic認証パスワード：P@ssw0rd2345   
-
 # 利用方法
 このアプリケーションの基本的な利用方法は以下の通りです。
 
@@ -62,10 +58,6 @@ Basic認証パスワード：P@ssw0rd2345
 - 予定色分け機能  
  ・ユーザーごとに予定表示の色が異なる  
 
-# データベース設計
-
-# 画面遷移図
-
 # 開発環境
 フロントエンド：HTML/CSS/Javascript  
 バックエンド：Ruby on Rails  
@@ -74,14 +66,6 @@ Basic認証パスワード：P@ssw0rd2345
 認証：Devise  
 テキストエディタ：VScode  
 タスク管理：GitHub  
-
-# ローカルでの動作方法
-git clone https://github.com/wassyprince/shopping_days  
-cd shopping_days  
-bundle install  
-rails db:create  
-rails db:migrate  
-rails server  
 
 # 工夫したポイント
 ・GitHubにおいて Project と Issue によるタスク管理を行い、開発の進捗を可視化しました。  
