@@ -10,7 +10,7 @@ ShoppingDays
 このアプリケーションの基本的な利用方法は以下の通りです。
 
 ・トップページから「ユーザー新規登録」画面に移動し、登録を行う  
-※登録完了後は自動的にログインされ、カレンダーページへ遷移します  
+　※登録完了後は自動的にログインされ、カレンダーページへ遷移します  
 ・「ログアウト」リンクからログアウト可能  
 ・「ログイン」リンクからログイン可能  
 ・カレンダー内の日付セルに表示される「＋」マークをクリックして、買い物リストを作成  
@@ -22,9 +22,9 @@ ShoppingDays
 日常生活の中で、スーパーやコンビニに買い物へ行った際に、家族から頼まれた日用品や食料品をつい買い忘れてしまうことがありました。  
 この「買い忘れ」を防ぐ仕組みがあれば便利だと考え、アプリケーションの制作に取り組みました。  
 対象とするのは、自分や家族をはじめ、日常的に買い物をする主婦・主夫などの生活者です。  
-誰もが簡単に操作でき、手軽に買い物リストを管理できることで、買い忘れを防止できるアプリを目指しました。
+誰もが簡単に操作できて、手軽に買い物リストを管理できることで、買い忘れを防止できるアプリを目指しました。
 
-# 実装した機能についての画像やGIFおよびその説明
+# 実装した機能について
 - ユーザー管理機能  
  ・ユーザーログイン／ログアウト  
  ・ユーザー情報変更  
@@ -75,3 +75,116 @@ ShoppingDays
 # 制作時間
 総工数：110時間/人  
 期間：20日間
+
+## Users
+
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| name               | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+
+### Association
+has_many :shopping_lists, dependent: :destroy
+has_many :plan_users, dependent: :destroy
+has_many :plans, through: :plan_users
+has_many :edit_histories, dependent: :destroy
+has_one  :notification, dependent: :destroy
+has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
+
+## ShoppingLists
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| date   | date       | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| title  | string     | null: false                    | 
+
+### Association
+belongs_to :user
+has_many   :items, dependent: :destroy
+has_many   :edit_histories, dependent: :destroy
+
+
+## Items
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| quantity      | integer    | null: false                    |
+| category      | string     | null: false                    |
+| memo          | text       | null: true                     |
+| purchased     | boolean    | null: false, default: false    |
+| shopping_list | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :shopping_list
+has_many   :edit_histories, dependent: :nullify
+
+
+## EditHistory
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| action            | integer    | null: false                    |
+| item              | references | null: true, foreign_key: true  |
+| user              | references | null: false, foreign_key: true |
+| shopping_list     | references | null: false, foreign_key: true |
+| list_title        | string     | null: true                     |
+| before_name       | string     | null: true                     |
+| after_name        | string     | null: true                     |
+| before_quantity   | integer    | null: true                     |
+| after_quantity    | integer    | null: true                     |
+| before_category   | string     | null: true                     |
+| after_category    | string     | null: true                     |
+| before_purchased  | boolean    | null: true                     |
+| after_purchased   | boolean    | null: true                     |
+| before_list_title | string     | null: true                     |
+| after_list_title  | string     | null: true                     |
+| before_date       | date       | null: true                     |
+| after_date        | date       | null: true                     |
+| before_memo       | text       | null: true                     |
+| after_memo        | text       | null: true                     |
+
+### Association
+belongs_to :user
+belongs_to :shopping_list
+belongs_to :item, optional: true
+
+
+## Notifications
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| enabled     | boolean    | null: false, default: true     |
+| user        | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+
+
+## Plans
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| title	      | string	   | null: false                    |
+| note        |	text	     | null: true                     |
+| start_time	| datetime	 | null: false                    |
+| end_time    |	datetime	 | null: false                    |
+| owner_id    | integer    | null: true                     | 
+
+### Association
+has_many :plan_users, dependent: :destroy
+has_many :users, through: :plan_users
+belongs_to :owner, class_name: "User", optional: true
+
+
+## Plan_User
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| plan	      | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :plan
+belongs_to :user
