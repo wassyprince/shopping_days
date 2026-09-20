@@ -85,12 +85,12 @@ ShoppingDays
 | encrypted_password | string | null: false               |
 
 ### Association
-has_many :shopping_lists, dependent: :destroy
-has_many :plan_users, dependent: :destroy
-has_many :plans, through: :plan_users
-has_many :edit_histories, dependent: :destroy
-has_one  :notification, dependent: :destroy
-has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
+has_many :shopping_lists, dependent: :destroy  
+has_many :plan_users, dependent: :destroy  
+has_many :plans, through: :plan_users  
+has_many :edit_histories, dependent: :destroy  
+has_one  :notification, dependent: :destroy  
+has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"  
 
 ## ShoppingLists
 
@@ -102,8 +102,8 @@ has_many :owned_plans, class_name: "Plan", foreign_key: "owner_id"
 
 ### Association
 belongs_to :user
-has_many   :items, dependent: :destroy
-has_many   :edit_histories, dependent: :destroy
+has_many   :items, dependent: :destroy  
+has_many   :edit_histories, dependent: :destroy  
 
 
 ## Items
@@ -118,8 +118,8 @@ has_many   :edit_histories, dependent: :destroy
 | shopping_list | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to :shopping_list
-has_many   :edit_histories, dependent: :nullify
+belongs_to :shopping_list  
+has_many   :edit_histories, dependent: :nullify  
 
 
 ## EditHistory
@@ -147,9 +147,9 @@ has_many   :edit_histories, dependent: :nullify
 | after_memo        | text       | null: true                     |
 
 ### Association
-belongs_to :user
-belongs_to :shopping_list
-belongs_to :item, optional: true
+belongs_to :user  
+belongs_to :shopping_list  
+belongs_to :item, optional: true  
 
 
 ## Notifications
@@ -174,9 +174,9 @@ belongs_to :user
 | owner_id    | integer    | null: true                     | 
 
 ### Association
-has_many :plan_users, dependent: :destroy
-has_many :users, through: :plan_users
-belongs_to :owner, class_name: "User", optional: true
+has_many :plan_users, dependent: :destroy  
+has_many :users, through: :plan_users  
+belongs_to :owner, class_name: "User", optional: true  
 
 
 ## Plan_User
@@ -186,5 +186,5 @@ belongs_to :owner, class_name: "User", optional: true
 | user        | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to :plan
-belongs_to :user
+belongs_to :plan  
+belongs_to :user  
